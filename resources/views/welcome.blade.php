@@ -10,16 +10,17 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
         <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
         
         <style>
             body{
-                display: inline !important;
+                padding-bottom: 0 !important;
             }
         </style>
 
     </head>
-    <body class="text-center">
+    <body class="">
         <div id="app">
 
         </div>

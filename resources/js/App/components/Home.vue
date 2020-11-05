@@ -1,17 +1,25 @@
 <template>
   <div>
-        
-          <h4>SALES SYSTEM</h4>
-          <h5>Sistema de Gestion para Venta y Compra de productos</h5>
-          <p>Una plataforma creada para gestionar las compras y ventas de cualquier producto.</p>
-          <!-- <routerLink to="/login"><button class="btn btn-success btn-lg">Iniciar Sesion</button></routerLink> -->
-    
-    
+        <header-main></header-main>
+        <main >
+            <banner></banner>
+            <destacados></destacados>
+            <nuevos></nuevos>
+            <categorias></categorias>
+            <patrocinadores></patrocinadores>
+        </main>
+        <footer-main></footer-main>
   </div>
 </template>
 
 <script>
-    // import Dashboard from './Dashboard';
+    import HeaderMain from './Header';
+    import FooterMain from './Footer';
+    import BannerVue from './Banner.vue';
+    import DestacadosVue from './Destacados.vue';
+    import NuevosVue from './Nuevos.vue';
+    import CategoriasVue from './Categorias.vue';
+    import PatrocinadoresVue from './Patrocinadores.vue';
 
     export default {
         name: 'Home',
@@ -21,7 +29,13 @@
             }
         },
         components:{
-            // 'dashboard' : Dashboard
+            'header-main' : HeaderMain,
+            'footer-main' : FooterMain,
+            'banner' : BannerVue,
+            'destacados' : DestacadosVue,
+            'nuevos' : NuevosVue,
+            'categorias' : CategoriasVue,
+            'patrocinadores' : PatrocinadoresVue
         },
         mounted() {
             
@@ -30,32 +44,10 @@
 </script>
 
 <style scoped>
-      .carousel-caption {
-        bottom: 40%;
+      h2{
+          text-align: center;
       }
-      h4{
-        font-size: 450% ;
-      }
-      h5{
-        font-size: 200% ;
-      }
-      img{
-        /* opacity: 0.4; */
-        background-color: rgba(0,0,0,0.8);
-        filter:brightness(0.4);
-        max-height: 100%;
-        
-      }
-      p{
-        font-size: 120%;
-      }
-      #fondo{
-        min-height:100%;
-        max-height: 100%;
-        background-size:cover;
-        background-repeat: no-repeat;
-      }
-      router-link{
+      /* router-link{
           text-decoration: none;
       }
       router-link a{
@@ -63,5 +55,5 @@
       }
       router-link a{
           text-decoration: none !important;
-      }
+      } */
 </style>
