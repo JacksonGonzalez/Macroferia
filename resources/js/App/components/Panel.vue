@@ -2,11 +2,8 @@
   <div>
         <header-main></header-main>
         <main >
-            <banner></banner>
-            <destacados></destacados>
-            <nuevos></nuevos>
-            <categorias></categorias>
-            <patrocinadores></patrocinadores>
+            
+            
         </main>
         <footer-main></footer-main>
   </div>
@@ -15,14 +12,9 @@
 <script>
     import HeaderMain from './Header';
     import FooterMain from './Footer';
-    import BannerVue from './Banner.vue';
-    import DestacadosVue from './Destacados.vue';
-    import NuevosVue from './Nuevos.vue';
-    import CategoriasVue from './Categorias.vue';
-    import PatrocinadoresVue from './Patrocinadores.vue';
 
     export default {
-        name: 'Home',
+        name: 'Panel',
         data(){
             return {
                 loading: false
@@ -31,11 +23,6 @@
         components:{
             'header-main' : HeaderMain,
             'footer-main' : FooterMain,
-            'banner' : BannerVue,
-            'destacados' : DestacadosVue,
-            'nuevos' : NuevosVue,
-            'categorias' : CategoriasVue,
-            'patrocinadores' : PatrocinadoresVue
         },
         mounted() {
             

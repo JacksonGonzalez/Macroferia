@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from './components/Home';
-// import Dashboard from './components/Dashboard';
-// import Login from './components/Login';
-// import MenuMain from './components/MenuMain';
-// import Category from './components/Category';
+import ProductosXCategoria from './components/ProductosXCategoria';
+import Panel from './components/Panel';
+import Mensages from './components/Mensages';
+import Contactenos from './components/Contactenos';
 // import Client from './components/Client';
 // import Income from './components/Income';
 // import IncomeReport from './components/IncomeReport.vue';
@@ -24,26 +24,27 @@ export const routes = [
         component: Home,
 
     },
-    // {
-    //     path : '/login',
-    //     component: Login,
+    {
+        path : '/productosxcategoria/:id',
+        name : 'productosxcategoria',
+        component: ProductosXCategoria,
 
-    // },
-    // {
-    //     path : '/dashboard',
-    //     component: Dashboard,
+    },
+    {
+        path : '/panel',
+        component: Panel,
 
-    // },
-    // {
-    //     path : '/menu-main',
-    //     component: MenuMain,
+    },
+    {
+        path : '/mensage',
+        component: Mensages,
 
-    // },
-    // {
-    //     path : '/categorias',
-    //     component: Category,
+    },
+    {
+        path : '/contactenos',
+        component: Contactenos,
 
-    // },
+    },
     // {
     //     path : '/productos',
     //     component: Product,
