@@ -10,11 +10,11 @@
 </template>
 
 <script>
-    import HeaderMain from './Header';
-    import FooterMain from './Footer';
+    import HeaderMain from './../layout/Header';
+    import FooterMain from './../layout/Footer';
 
     export default {
-        name: 'Mensages',
+        name: 'Panel',
         data(){
             return {
                 loading: false

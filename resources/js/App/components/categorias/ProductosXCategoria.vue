@@ -84,9 +84,9 @@
 </template>
 
 <script>
-    import HeaderMain from './Header';
-    import FooterMain from './Footer';
-    import BannerVue from './Banner.vue';
+    import HeaderMain from './../layout/Header';
+    import FooterMain from './../layout/Footer';
+    import BannerVue from './../layout/Banner';
 
     export default {
         name: 'ProductosXCategoria',

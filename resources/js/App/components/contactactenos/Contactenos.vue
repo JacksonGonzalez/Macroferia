@@ -2,7 +2,7 @@
   <div>
         <header-main></header-main>
         <main >
-            
+            <banner></banner>
             
         </main>
         <footer-main></footer-main>
@@ -10,11 +10,12 @@
 </template>
 
 <script>
-    import HeaderMain from './Header';
-    import FooterMain from './Footer';
+    import HeaderMain from './../layout/Header';
+    import FooterMain from './../layout/Footer';
+    import BannerVue from './../layout/Banner';
 
     export default {
-        name: 'Panel',
+        name: 'Contactenos',
         data(){
             return {
                 loading: false
@@ -23,6 +24,7 @@
         components:{
             'header-main' : HeaderMain,
             'footer-main' : FooterMain,
+            'banner' : BannerVue,
         },
         mounted() {
             

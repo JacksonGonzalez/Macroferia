@@ -13,9 +13,9 @@
 </template>
 
 <script>
-    import HeaderMain from './Header';
-    import FooterMain from './Footer';
-    import BannerVue from './Banner.vue';
+    import HeaderMain from './../layout/Header';
+    import FooterMain from './../layout/Footer';
+    import BannerVue from './../layout/Banner';
     import DestacadosVue from './Destacados.vue';
     import NuevosVue from './Nuevos.vue';
     import CategoriasVue from './Categorias.vue';
