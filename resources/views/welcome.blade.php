@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/regular.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/solid.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/chat.css') }}">
         
         
         <style>
