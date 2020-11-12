@@ -2263,6 +2263,87 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Destacados',
   data: function data() {
@@ -2271,7 +2352,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {},
-  mounted: function mounted() {}
+  mounted: function mounted() {},
+  methods: {
+    mostrarModal: function mostrarModal() {
+      $('#modalDestacado').modal('show');
+    }
+  }
 });
 
 /***/ }),
@@ -2423,6 +2509,86 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Nuevos',
   data: function data() {
@@ -2431,7 +2597,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {},
-  mounted: function mounted() {}
+  mounted: function mounted() {},
+  methods: {
+    mostrarModal: function mostrarModal() {
+      $('#modalNuevo').modal('show');
+    }
+  }
 });
 
 /***/ }),
@@ -7348,6 +7519,25 @@ exports.push([module.i, "\nh2[data-v-ee881548]{\n    text-align: center;\n}\nrou
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.carousel-height[data-v-30bbe2e4]{\n    height: 15em !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Home.vue?vue&type=style&index=0&id=5c0e8022&scoped=true&lang=css&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/components/home/Home.vue?vue&type=style&index=0&id=5c0e8022&scoped=true&lang=css& ***!
@@ -7361,6 +7551,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, "\nh2[data-v-5c0e8022]{\n    text-align: center;\n}\nrouter-link[data-v-5c0e8022]{\n    text-decoration: none;\n}\nrouter-link a[data-v-5c0e8022]{\n    text-decoration: none;\n}\nrouter-link a[data-v-5c0e8022]{\n    text-decoration: none !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.carousel-height[data-v-78a38a9f]{\n    height: 15em !important;\n}\n", ""]);
 
 // exports
 
@@ -38692,6 +38901,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Home.vue?vue&type=style&index=0&id=5c0e8022&scoped=true&lang=css&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/components/home/Home.vue?vue&type=style&index=0&id=5c0e8022&scoped=true&lang=css& ***!
@@ -38701,6 +38940,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=style&index=0&id=5c0e8022&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Home.vue?vue&type=style&index=0&id=5c0e8022&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -39835,172 +40104,462 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h2", { attrs: { align: "center" } }, [_vm._v("Productos Destacados")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row row-cols-1 row-cols-md-4 mr-3 ml-3" }, [
+      _c("div", { staticClass: "col mb-4" }, [
+        _c("div", { staticClass: "card h-100" }, [
+          _c("img", {
+            staticClass: "card-img-top",
+            attrs: {
+              src:
+                "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+              alt: "..."
+            },
+            on: {
+              click: function($event) {
+                return _vm.mostrarModal()
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
+      _vm._m(5),
+      _vm._v(" "),
+      _vm._m(6),
+      _vm._v(" "),
+      _vm._m(7)
+    ]),
+    _vm._v(" "),
+    _vm._m(8)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h2", { attrs: { align: "center" } }, [
-        _vm._v("Productos Destacados")
-      ]),
+    return _c("div", { staticClass: "card-body" }, [
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
       _vm._v(" "),
-      _c("div", { staticClass: "row row-cols-1 row-cols-md-4 mr-3 ml-3" }, [
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
+      _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
         _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modalDestacado",
+          tabindex: "-1",
+          "aria-labelledby": "modalDestacado",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-lg" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  staticClass: "modal-title",
+                  attrs: { id: "exampleModalLabel" }
+                },
+                [_vm._v("Nombre Producto")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "close",
+                  attrs: {
+                    type: "button",
+                    "data-dismiss": "modal",
+                    "aria-label": "Close"
+                  }
+                },
+                [
+                  _c("span", { attrs: { "aria-hidden": "true" } }, [
+                    _vm._v("×")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "container-fluid" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "carousel slide",
+                        attrs: {
+                          id: "carouselExampleControls",
+                          "data-ride": "carousel"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "carousel-inner" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "carousel-item active carousel-height"
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "d-block w-100 h-90",
+                                attrs: {
+                                  src:
+                                    "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+                                  alt: "..."
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "carousel-item carousel-height" },
+                            [
+                              _c("img", {
+                                staticClass: "d-block w-100 h-90",
+                                attrs: {
+                                  src:
+                                    "https://www.adamedtv.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-07-at-13.50.19.png",
+                                  alt: "..."
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "carousel-item carousel-height" },
+                            [
+                              _c("img", {
+                                staticClass: "d-block w-100 h-90",
+                                attrs: {
+                                  src:
+                                    "https://img.freepik.com/foto-gratis/cuadros-textura-materia-textil-blanca_1194-7127.jpg?size=338&ext=jpg",
+                                  alt: "..."
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "carousel-control-prev",
+                            attrs: {
+                              href: "#carouselExampleControls",
+                              role: "button",
+                              "data-slide": "prev"
+                            }
+                          },
+                          [
+                            _c("span", {
+                              staticClass: "carousel-control-prev-icon",
+                              attrs: { "aria-hidden": "true" }
+                            }),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("Previous")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "carousel-control-next",
+                            attrs: {
+                              href: "#carouselExampleControls",
+                              role: "button",
+                              "data-slide": "next"
+                            }
+                          },
+                          [
+                            _c("span", {
+                              staticClass: "carousel-control-next-icon",
+                              attrs: { "aria-hidden": "true" }
+                            }),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("Next")
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("table", { staticClass: "table table-hover table-sm" }, [
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Nombre")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@mdo")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Proveedor")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@fat")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Cerrar")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                [_vm._v("Enviar Mensage")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -40072,170 +40631,462 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h2", { attrs: { align: "center" } }, [_vm._v("Productos Nuevos")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row row-cols-1 row-cols-md-4 mr-3 ml-3" }, [
+      _c("div", { staticClass: "col mb-4" }, [
+        _c("div", { staticClass: "card h-100" }, [
+          _c("img", {
+            staticClass: "card-img-top",
+            attrs: {
+              src:
+                "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+              alt: "..."
+            },
+            on: {
+              click: function($event) {
+                return _vm.mostrarModal()
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm._m(0)
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _vm._m(3),
+      _vm._v(" "),
+      _vm._m(4),
+      _vm._v(" "),
+      _vm._m(5),
+      _vm._v(" "),
+      _vm._m(6),
+      _vm._v(" "),
+      _vm._m(7)
+    ]),
+    _vm._v(" "),
+    _vm._m(8)
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h2", { attrs: { align: "center" } }, [_vm._v("Productos Nuevos")]),
+    return _c("div", { staticClass: "card-body" }, [
+      _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
       _vm._v(" "),
-      _c("div", { staticClass: "row row-cols-1 row-cols-md-4 mr-3 ml-3" }, [
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
+      _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
         _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col mb-4" }, [
-          _c("div", { staticClass: "card h-100" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: {
-                src:
-                  "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-                alt: "..."
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
-              _vm._v(" "),
-              _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
-            ])
-          ])
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
         ])
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col mb-4" }, [
+      _c("div", { staticClass: "card h-100" }, [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: {
+            src:
+              "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+            alt: "..."
+          }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "card-body" }, [
+          _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [_vm._v("$100.000 COP")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modalNuevo",
+          tabindex: "-1",
+          "aria-labelledby": "modalDestacado",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-lg" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _c("div", { staticClass: "modal-header" }, [
+              _c(
+                "h5",
+                {
+                  staticClass: "modal-title",
+                  attrs: { id: "exampleModalLabel" }
+                },
+                [_vm._v("Nombre Producto")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "close",
+                  attrs: {
+                    type: "button",
+                    "data-dismiss": "modal",
+                    "aria-label": "Close"
+                  }
+                },
+                [
+                  _c("span", { attrs: { "aria-hidden": "true" } }, [
+                    _vm._v("×")
+                  ])
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "container-fluid" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "carousel slide",
+                        attrs: {
+                          id: "carouselControls",
+                          "data-ride": "carousel"
+                        }
+                      },
+                      [
+                        _c("div", { staticClass: "carousel-inner" }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "carousel-item active carousel-height"
+                            },
+                            [
+                              _c("img", {
+                                staticClass: "d-block w-100 h-90",
+                                attrs: {
+                                  src:
+                                    "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
+                                  alt: "..."
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "carousel-item carousel-height" },
+                            [
+                              _c("img", {
+                                staticClass: "d-block w-100 h-90",
+                                attrs: {
+                                  src:
+                                    "https://www.adamedtv.com/wp-content/uploads/2014/05/Screen-Shot-2014-05-07-at-13.50.19.png",
+                                  alt: "..."
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "carousel-item carousel-height" },
+                            [
+                              _c("img", {
+                                staticClass: "d-block w-100 h-90",
+                                attrs: {
+                                  src:
+                                    "https://img.freepik.com/foto-gratis/cuadros-textura-materia-textil-blanca_1194-7127.jpg?size=338&ext=jpg",
+                                  alt: "..."
+                                }
+                              })
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "carousel-control-prev",
+                            attrs: {
+                              href: "#carouselControls",
+                              role: "button",
+                              "data-slide": "prev"
+                            }
+                          },
+                          [
+                            _c("span", {
+                              staticClass: "carousel-control-prev-icon",
+                              attrs: { "aria-hidden": "true" }
+                            }),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("Previous")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "carousel-control-next",
+                            attrs: {
+                              href: "#carouselControls",
+                              role: "button",
+                              "data-slide": "next"
+                            }
+                          },
+                          [
+                            _c("span", {
+                              staticClass: "carousel-control-next-icon",
+                              attrs: { "aria-hidden": "true" }
+                            }),
+                            _vm._v(" "),
+                            _c("span", { staticClass: "sr-only" }, [
+                              _vm._v("Next")
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("table", { staticClass: "table table-hover table-sm" }, [
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Nombre")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@mdo")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Proveedor")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@fat")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v("Color")
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v("@twitter")])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Cerrar")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                [_vm._v("Enviar Mensage")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -57980,7 +58831,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Destacados_vue_vue_type_template_id_30bbe2e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Destacados.vue?vue&type=template&id=30bbe2e4&scoped=true& */ "./resources/js/app/components/home/Destacados.vue?vue&type=template&id=30bbe2e4&scoped=true&");
 /* harmony import */ var _Destacados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Destacados.vue?vue&type=script&lang=js& */ "./resources/js/app/components/home/Destacados.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Destacados_vue_vue_type_style_index_0_id_30bbe2e4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css& */ "./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -57988,7 +58841,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Destacados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Destacados_vue_vue_type_template_id_30bbe2e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Destacados_vue_vue_type_template_id_30bbe2e4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -58017,6 +58870,22 @@ component.options.__file = "resources/js/app/components/home/Destacados.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Destacados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Destacados.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Destacados.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Destacados_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css& ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Destacados_vue_vue_type_style_index_0_id_30bbe2e4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Destacados.vue?vue&type=style&index=0&id=30bbe2e4&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Destacados_vue_vue_type_style_index_0_id_30bbe2e4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Destacados_vue_vue_type_style_index_0_id_30bbe2e4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Destacados_vue_vue_type_style_index_0_id_30bbe2e4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Destacados_vue_vue_type_style_index_0_id_30bbe2e4_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 
@@ -58136,7 +59005,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Nuevos_vue_vue_type_template_id_78a38a9f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Nuevos.vue?vue&type=template&id=78a38a9f&scoped=true& */ "./resources/js/app/components/home/Nuevos.vue?vue&type=template&id=78a38a9f&scoped=true&");
 /* harmony import */ var _Nuevos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nuevos.vue?vue&type=script&lang=js& */ "./resources/js/app/components/home/Nuevos.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _Nuevos_vue_vue_type_style_index_0_id_78a38a9f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css& */ "./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -58144,7 +59015,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _Nuevos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Nuevos_vue_vue_type_template_id_78a38a9f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Nuevos_vue_vue_type_template_id_78a38a9f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -58173,6 +59044,22 @@ component.options.__file = "resources/js/app/components/home/Nuevos.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nuevos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Nuevos.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Nuevos.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nuevos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css& ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Nuevos_vue_vue_type_style_index_0_id_78a38a9f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/app/components/home/Nuevos.vue?vue&type=style&index=0&id=78a38a9f&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Nuevos_vue_vue_type_style_index_0_id_78a38a9f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Nuevos_vue_vue_type_style_index_0_id_78a38a9f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Nuevos_vue_vue_type_style_index_0_id_78a38a9f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Nuevos_vue_vue_type_style_index_0_id_78a38a9f_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 
