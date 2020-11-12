@@ -3,7 +3,8 @@
         <header-main></header-main>
         <main >
             <banner></banner>
-            
+            <h2>Escribenos</h2><br>
+            <formulario></formulario>
         </main>
         <footer-main></footer-main>
   </div>
@@ -13,6 +14,8 @@
     import HeaderMain from './../layout/Header';
     import FooterMain from './../layout/Footer';
     import BannerVue from './../layout/Banner';
+    import formularioVue from './Formulario';
+    
 
     export default {
         name: 'Contactenos',
@@ -25,6 +28,7 @@
             'header-main' : HeaderMain,
             'footer-main' : FooterMain,
             'banner' : BannerVue,
+            'formulario' : formularioVue,
         },
         mounted() {
             
