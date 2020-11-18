@@ -36,11 +36,11 @@
         <div id="app">
 
         </div>
-        <script src="{{ mix('/js/app.js') }}"></script>
         <script src="{{ asset('/js/jquery.min.js') }}"></script>
+        <script src="{{ mix('/js/app.js') }}"></script>
+        <script src="{{ asset('/js/Chart.min.js') }}"></script>
         <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('/js/adminlte.min.js') }}"></script>
-        <script src="{{ asset('/js/Chart.min.js') }}"></script>
         <script src="{{ asset('/js/demo.js') }}"></script>
         <script src="{{ asset('/js/dashboard3.js') }}"></script>
     </body>

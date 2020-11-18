@@ -55,16 +55,22 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" :href="/productosxcategoria/+item" 
-                  v-for="(item, index) in categoriasArray" :key="index"
-                  >Categoria {{item}}</a>
-                <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-                </li> 
+            <ul class="navbar-nav mr-auto justify-content-center">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Categorias
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a v-for="(item, index) in categoriasArray" :key="index"  
+                   class="dropdown-item" :href="/productosxcategoria/+item" >Categoria {{item}}</a>
+                </div>
+              </li>
                 
                 <li class="nav-item">
                   <router-link class="nav-link" to="/panel">Panel de Control</router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link class="nav-link" to="/productos">Mis Productos</router-link>
                 </li>
                 <li class="nav-item">
                   <router-link class="nav-link" to="/mensage">Mensajes</router-link>
@@ -86,7 +92,27 @@
 </template>
 
 <script>
+// $(document).on('click', '.dropdown-menu', function (e) {
+//   e.stopPropagation();
+// });
+
+// // make it as accordion for smaller screens
+// if ($(window).width() < 992) {
+//   $('.dropdown-menu a').click(function(e){
+//     e.preventDefault();
+//       if($(this).next('.submenu').length){
+//         $(this).next('.submenu').toggle();
+//       }
+//       $('.dropdown').on('hide.bs.dropdown', function () {
+//      $(this).find('.submenu').hide();
+//   })
+//   });
+// }
+
+
+
 export default {
+  
   name: "Header",
   data() {
     return {

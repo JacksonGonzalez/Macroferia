@@ -5,6 +5,7 @@ import ProductosXCategoria from './components/categorias/ProductosXCategoria';
 import Panel from './components/dashboard/Panel';
 import Mensages from './components/message/Mensages';
 import Contactenos from './components/contactactenos/Contactenos';
+import Productos from './components/productos/Productos'
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ export const routes = [
     {
         path : '/contactenos',
         component: Contactenos,
+
+    },
+    {
+        path : '/productos',
+        component: Productos,
 
     },
     
