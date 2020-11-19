@@ -59,8 +59,8 @@
                         <td>@mdo</td>
                         <td>@mdo</td>
                         <td>
-                            <p>Edit</p>
-                            <p>Borrar</p>
+                            <span class="material-icons">edit</span>
+                            <span class="material-icons">delete</span>
                         </td>
                         </tr>
                         <tr>
@@ -70,8 +70,8 @@
                         <td>@fat</td>
                         <td>@fat</td>
                         <td>
-                            <p>Edit</p>
-                            <p>Borrar</p>
+                            <span class="material-icons">edit</span>
+                            <span class="material-icons">delete</span>
                         </td>
                         </tr>
                         <tr>
@@ -81,8 +81,8 @@
                         <td>@twitter</td>
                         <td>@twitter</td>
                         <td>
-                            <p>Edit</p>
-                            <p>Borrar</p>
+                            <span class="material-icons">edit</span>
+                            <span class="material-icons">delete</span>
                         </td>
                         </tr>
                     </tbody>

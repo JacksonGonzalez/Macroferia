@@ -15,13 +15,15 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
         <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
-        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-        <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/brands.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/regular.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/solid.min.css') }}">
+        {{--  <link rel="stylesheet" href="{{ asset('css/fontawesome.css') }}">  --}}
         <link rel="stylesheet" href="{{ asset('css/chat.css') }}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+        {{--  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">  --}}
+        {{--  <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">  --}}
+        {{--  <link rel="stylesheet" href="{{ asset('css/brands.min.css') }}">  --}}
+        {{--  <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/regular.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/solid.min.css') }}">  --}}
         
         
         <style>

@@ -43422,9 +43422,13 @@ var staticRenderFns = [
                     _c("td", [_vm._v("@mdo")]),
                     _vm._v(" "),
                     _c("td", [
-                      _c("p", [_vm._v("Edit")]),
+                      _c("span", { staticClass: "material-icons" }, [
+                        _vm._v("edit")
+                      ]),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Borrar")])
+                      _c("span", { staticClass: "material-icons" }, [
+                        _vm._v("delete")
+                      ])
                     ])
                   ]),
                   _vm._v(" "),
@@ -43440,9 +43444,13 @@ var staticRenderFns = [
                     _c("td", [_vm._v("@fat")]),
                     _vm._v(" "),
                     _c("td", [
-                      _c("p", [_vm._v("Edit")]),
+                      _c("span", { staticClass: "material-icons" }, [
+                        _vm._v("edit")
+                      ]),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Borrar")])
+                      _c("span", { staticClass: "material-icons" }, [
+                        _vm._v("delete")
+                      ])
                     ])
                   ]),
                   _vm._v(" "),
@@ -43458,9 +43466,13 @@ var staticRenderFns = [
                     _c("td", [_vm._v("@twitter")]),
                     _vm._v(" "),
                     _c("td", [
-                      _c("p", [_vm._v("Edit")]),
+                      _c("span", { staticClass: "material-icons" }, [
+                        _vm._v("edit")
+                      ]),
                       _vm._v(" "),
-                      _c("p", [_vm._v("Borrar")])
+                      _c("span", { staticClass: "material-icons" }, [
+                        _vm._v("delete")
+                      ])
                     ])
                   ])
                 ])
