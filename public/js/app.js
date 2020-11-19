@@ -2719,6 +2719,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2751,6 +2807,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Header */ "./resources/js/app/components/dashboard/Header.vue");
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Footer */ "./resources/js/app/components/dashboard/Footer.vue");
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Sidebar */ "./resources/js/app/components/dashboard/Sidebar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2881,6 +2993,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2962,6 +3130,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2994,6 +3218,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Header */ "./resources/js/app/components/dashboard/Header.vue");
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Footer */ "./resources/js/app/components/dashboard/Footer.vue");
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Sidebar */ "./resources/js/app/components/dashboard/Sidebar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -42759,8 +43039,102 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" })
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-primary float-right mr-3" },
+                [_vm._v("Añadir Banner")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-2" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("table", { staticClass: "table table-striped table-hover" }, [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("nombre")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Categoria")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Minimo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Maximo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Mark")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Otto")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Jacob")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Thornton")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Larry")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("the Bird")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])
@@ -42831,8 +43205,102 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" })
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-primary float-right mr-3" },
+                [_vm._v("Añadir Categoria")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-2" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("table", { staticClass: "table table-striped table-hover" }, [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("nombre")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Categoria")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Minimo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Maximo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Mark")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Otto")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Jacob")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Thornton")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Larry")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("the Bird")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])
@@ -42903,8 +43371,102 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" })
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-primary float-right mr-3" },
+                [_vm._v("Añadir Producto")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-2" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("table", { staticClass: "table table-striped table-hover" }, [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("nombre")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Categoria")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Minimo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Maximo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Mark")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Otto")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Jacob")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Thornton")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Larry")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("the Bird")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])
@@ -42975,8 +43537,102 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" })
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-primary float-right mr-3" },
+                [_vm._v("Añadir Rol")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-2" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("table", { staticClass: "table table-striped table-hover" }, [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("nombre")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Categoria")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Minimo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Maximo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Mark")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Otto")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Jacob")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Thornton")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Larry")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("the Bird")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])
@@ -43047,8 +43703,102 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" })
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "col" }, [
+              _c(
+                "button",
+                { staticClass: "btn btn-primary float-right mr-3" },
+                [_vm._v("Añadir Usuario")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row mt-2" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("table", { staticClass: "table table-striped table-hover" }, [
+                _c("thead", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("nombre")]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Categoria")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Minimo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [
+                      _vm._v("Precio Maximo")
+                    ]),
+                    _vm._v(" "),
+                    _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("tbody", [
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Mark")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Otto")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@mdo")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Jacob")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Thornton")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@fat")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("tr", [
+                    _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("Larry")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("the Bird")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v("@twitter")]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c("p", [_vm._v("Edit")]),
+                      _vm._v(" "),
+                      _c("p", [_vm._v("Borrar")])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
         ])
       ])
     ])

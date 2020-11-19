@@ -29,11 +29,67 @@
 
             <!-- Main content -->
             <div class="content">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
-                    
+                    <div class="col">
+                        <!-- <h2 class="text-center">Roles</h2>  -->
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary float-right mr-3">Añadir Usuario</button>
+                    </div>
                 </div>
-                <!-- /.row -->
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                    <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">nombre</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Precio Minimo</th>
+                        <th scope="col">Precio Maximo</th>
+                        <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>
+                            <p>Edit</p>
+                            <p>Borrar</p>
+                        </td>
+                        </tr>
+                        <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>
+                            <p>Edit</p>
+                            <p>Borrar</p>
+                        </td>
+                        </tr>
+                        <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                        <td>@twitter</td>
+                        <td>
+                            <p>Edit</p>
+                            <p>Borrar</p>
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+
+                    </div>
+                </div>
             </div>
             <!-- /.container-fluid -->
             </div>
