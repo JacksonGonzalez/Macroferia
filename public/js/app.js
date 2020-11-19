@@ -2448,6 +2448,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -42699,13 +42700,10 @@ var staticRenderFns = [
       _c("div", { staticClass: "content" }, [
         _c("div", { staticClass: "container-fluid" }, [
           _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "col-md-12 text-center" }, [
               _c("img", {
                 staticClass: "img-fluid",
-                attrs: {
-                  src: "img/bienvenida MACROFERIA.png",
-                  alt: "bienvenida"
-                }
+                attrs: { src: "img/macroferia.png", alt: "bienvenida" }
               })
             ])
           ])

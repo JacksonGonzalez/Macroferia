@@ -19,8 +19,9 @@
             <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
-                        <img src="img/bienvenida MACROFERIA.png" class="img-fluid" alt="bienvenida">
+                    <div class="col-md-12 text-center">
+                        <!-- <img src="img/bienvenida MACROFERIA.png" class="img-fluid" alt="bienvenida"> -->
+                        <img src="img/macroferia.png" class="img-fluid" alt="bienvenida">
                     </div>
                 </div>
                 <!-- /.row -->
