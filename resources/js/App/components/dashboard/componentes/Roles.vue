@@ -14,11 +14,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Bienvenido</h1>
+                    <h1 class="m-0 text-dark">Roles</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Rol</a></li>
                     <li class="breadcrumb-item active">Dashboard v3</li>
                     </ol>
                 </div><!-- /.col -->
@@ -48,12 +48,12 @@
 </template>
 
 <script>
-    import Header from './Header';
-    import Footer from './Footer';
-    import Sidebar from './Sidebar';
+    import Header from './../Header';
+    import Footer from './../Footer';
+    import Sidebar from './../Sidebar';
 
     export default {
-        name: 'Panel',
+        name: 'Roles',
         data(){
             return {
                 loading: false

@@ -6,6 +6,11 @@ import Panel from './components/dashboard/Panel';
 import Mensages from './components/message/Mensages';
 import Contactenos from './components/contactactenos/Contactenos';
 import Productos from './components/productos/Productos'
+import RolesPanel from './components/dashboard/componentes/Roles';
+import UsuarioPanel from './components/dashboard/componentes/Usuarios';
+import CategoriasPanel from './components/dashboard/componentes/Categorias';
+import ProductosPanel from './components/dashboard/componentes/Productos';
+import BannerPanel from './components/dashboard/componentes/Banner';
 
 Vue.use(VueRouter);
 
@@ -39,6 +44,31 @@ export const routes = [
     {
         path : '/productos',
         component: Productos,
+
+    },
+    {
+        path : '/roles-panel',
+        component: RolesPanel,
+
+    },
+    {
+        path : '/usuarios-panel',
+        component: UsuarioPanel,
+
+    },
+    {
+        path : '/categorias-panel',
+        component: CategoriasPanel,
+
+    },
+    {
+        path : '/productos-panel',
+        component: ProductosPanel,
+
+    },
+    {
+        path : '/banner-panel',
+        component: BannerPanel,
 
     },
     
