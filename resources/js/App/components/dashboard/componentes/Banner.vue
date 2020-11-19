@@ -40,7 +40,7 @@
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-12">
-                    <table class="table table-striped table-hover">
+                    <table class="table table-striped table-hover table-responsive">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
