@@ -6,6 +6,13 @@
             <destacados></destacados>
             <nuevos></nuevos>
             <categorias></categorias>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="img/Macroferia4.png" class="img-fluid float-center" alt="Macroferia">
+                    </div>
+                </div>
+            </div>
             <patrocinadores></patrocinadores>
         </main>
         <footer-main></footer-main>

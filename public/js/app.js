@@ -3659,6 +3659,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3883,8 +3890,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -44630,6 +44635,8 @@ var render = function() {
           _vm._v(" "),
           _c("categorias"),
           _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
           _c("patrocinadores")
         ],
         1
@@ -44640,7 +44647,23 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("img", {
+            staticClass: "img-fluid float-center",
+            attrs: { src: "img/Macroferia4.png", alt: "Macroferia" }
+          })
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -45150,71 +45173,41 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", [
       _c("h2", { staticClass: "text-center mt-4 mb-4" }, [
-        _vm._v("Nuestros Socios")
+        _vm._v("Nuestros Aliados")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "text-center" }, [
         _c("img", {
           staticClass: "rounded mr-1",
+          attrs: { src: "img/aliados/aliadoNew.png", alt: "Mintic" }
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "rounded mr-1",
+          attrs: { src: "img/aliados/camaraNew.png", alt: "Camara Comercio" }
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "rounded mr-1",
           attrs: {
-            src:
-              "https://i0.wp.com/www.abanlex.com/wp-content/uploads/2018/03/0.jpg?fit=500%2C500&ssl=1",
-            alt: "..."
+            src: "img/aliados/codaltecNew.png",
+            width: "260",
+            alt: "Codaltec"
           }
         }),
         _vm._v(" "),
         _c("img", {
           staticClass: "rounded mr-1",
           attrs: {
-            src:
-              "https://i0.wp.com/www.abanlex.com/wp-content/uploads/2018/03/0.jpg?fit=500%2C500&ssl=1",
-            alt: "..."
+            src: "img/aliados/gobierno.png",
+            width: "280",
+            alt: "gobierno de colombia"
           }
         }),
         _vm._v(" "),
         _c("img", {
           staticClass: "rounded mr-1",
-          attrs: {
-            src:
-              "https://i0.wp.com/www.abanlex.com/wp-content/uploads/2018/03/0.jpg?fit=500%2C500&ssl=1",
-            alt: "..."
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "rounded mr-1",
-          attrs: {
-            src:
-              "https://i0.wp.com/www.abanlex.com/wp-content/uploads/2018/03/0.jpg?fit=500%2C500&ssl=1",
-            alt: "..."
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "rounded mr-1",
-          attrs: {
-            src:
-              "https://i0.wp.com/www.abanlex.com/wp-content/uploads/2018/03/0.jpg?fit=500%2C500&ssl=1",
-            alt: "..."
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "rounded mr-1",
-          attrs: {
-            src:
-              "https://i0.wp.com/www.abanlex.com/wp-content/uploads/2018/03/0.jpg?fit=500%2C500&ssl=1",
-            alt: "..."
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "rounded mr-1",
-          attrs: {
-            src:
-              "https://i0.wp.com/www.abanlex.com/wp-content/uploads/2018/03/0.jpg?fit=500%2C500&ssl=1",
-            alt: "..."
-          }
+          attrs: { src: "img/aliados/ufpsNew.png", width: "260", alt: "ufps" }
         })
       ])
     ])
