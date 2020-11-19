@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="row mt-2">
-                    <div class="col-md-12">
+                    <div class="col-md-12 text-center">
                     <table class="table table-striped table-hover table-responsive">
                     <thead>
                         <tr>
@@ -59,8 +59,12 @@
                         <td>@mdo</td>
                         <td>@mdo</td>
                         <td>
-                            <span class="material-icons">edit</span>
-                            <span class="material-icons">delete</span>
+                            <button class="btn btn-warning mr-1">
+                                <span class="material-icons">edit</span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="material-icons">delete</span>
+                            </button>
                         </td>
                         </tr>
                         <tr>
@@ -70,8 +74,12 @@
                         <td>@fat</td>
                         <td>@fat</td>
                         <td>
-                            <span class="material-icons">edit</span>
-                            <span class="material-icons">delete</span>
+                            <button class="btn btn-warning mr-1">
+                                <span class="material-icons">edit</span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="material-icons">delete</span>
+                            </button>
                         </td>
                         </tr>
                         <tr>
@@ -81,8 +89,12 @@
                         <td>@twitter</td>
                         <td>@twitter</td>
                         <td>
-                            <span class="material-icons">edit</span>
-                            <span class="material-icons">delete</span>
+                            <button class="btn btn-warning mr-1">
+                                <span class="material-icons">edit</span>
+                            </button>
+                            <button class="btn btn-danger">
+                                <span class="material-icons">delete</span>
+                            </button>
                         </td>
                         </tr>
                     </tbody>

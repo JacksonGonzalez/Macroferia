@@ -33,8 +33,12 @@
             <td>@mdo</td>
             <td>@mdo</td>
             <td>
-                <p>Edit</p>
-                <p>Borrar</p>
+                <button class="btn btn-warning mr-1">
+                    <span class="material-icons">edit</span>
+                </button>
+                <button class="btn btn-danger">
+                    <span class="material-icons">delete</span>
+                </button>
             </td>
             </tr>
             <tr>
@@ -51,8 +55,12 @@
             <td>@fat</td>
             <td>@fat</td>
             <td>
-                <p>Edit</p>
-                <p>Borrar</p>
+                <button class="btn btn-warning mr-1">
+                    <span class="material-icons">edit</span>
+                </button>
+                <button class="btn btn-danger">
+                    <span class="material-icons">delete</span>
+                </button>
             </td>
             </tr>
             <tr>
@@ -69,8 +77,12 @@
             <td>@twitter</td>
             <td>@twitter</td>
             <td>
-                <p>Edit</p>
-                <p>Borrar</p>
+                <button class="btn btn-warning mr-1">
+                    <span class="material-icons">edit</span>
+                </button>
+                <button class="btn btn-danger">
+                    <span class="material-icons">delete</span>
+                </button>
             </td>
             </tr>
         </tbody>

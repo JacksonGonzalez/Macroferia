@@ -2766,6 +2766,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2798,6 +2810,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Header */ "./resources/js/app/components/dashboard/Header.vue");
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Footer */ "./resources/js/app/components/dashboard/Footer.vue");
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Sidebar */ "./resources/js/app/components/dashboard/Sidebar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3040,6 +3064,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3177,6 +3213,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3209,6 +3257,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Header */ "./resources/js/app/components/dashboard/Header.vue");
 /* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Footer */ "./resources/js/app/components/dashboard/Footer.vue");
 /* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../Sidebar */ "./resources/js/app/components/dashboard/Sidebar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4642,6 +4702,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -43076,9 +43148,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@mdo")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -43094,9 +43174,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@fat")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -43112,9 +43200,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@twitter")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ])
                   ])
@@ -43251,9 +43347,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@mdo")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -43269,9 +43373,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@fat")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -43287,9 +43399,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@twitter")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ])
                   ])
@@ -43381,7 +43501,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row mt-2" }, [
-            _c("div", { staticClass: "col-md-12" }, [
+            _c("div", { staticClass: "col-md-12 text-center" }, [
               _c(
                 "table",
                 {
@@ -43426,12 +43546,16 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@mdo")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("span", { staticClass: "material-icons" }, [
-                          _vm._v("edit")
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c("span", { staticClass: "material-icons" }, [
-                          _vm._v("delete")
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
                         ])
                       ])
                     ]),
@@ -43448,12 +43572,16 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@fat")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("span", { staticClass: "material-icons" }, [
-                          _vm._v("edit")
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c("span", { staticClass: "material-icons" }, [
-                          _vm._v("delete")
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
                         ])
                       ])
                     ]),
@@ -43470,12 +43598,16 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@twitter")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("span", { staticClass: "material-icons" }, [
-                          _vm._v("edit")
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
                         ]),
                         _vm._v(" "),
-                        _c("span", { staticClass: "material-icons" }, [
-                          _vm._v("delete")
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
                         ])
                       ])
                     ])
@@ -43613,9 +43745,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@mdo")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -43631,9 +43771,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@fat")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -43649,9 +43797,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@twitter")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ])
                   ])
@@ -43788,9 +43944,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@mdo")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -43806,9 +43970,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@fat")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -43824,9 +43996,17 @@ var staticRenderFns = [
                       _c("td", [_vm._v("@twitter")]),
                       _vm._v(" "),
                       _c("td", [
-                        _c("p", [_vm._v("Edit")]),
+                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("edit")
+                          ])
+                        ]),
                         _vm._v(" "),
-                        _c("p", [_vm._v("Borrar")])
+                        _c("button", { staticClass: "btn btn-danger" }, [
+                          _c("span", { staticClass: "material-icons" }, [
+                            _vm._v("delete")
+                          ])
+                        ])
                       ])
                     ])
                   ])
@@ -46772,9 +46952,17 @@ var staticRenderFns = [
               _c("td", [_vm._v("@mdo")]),
               _vm._v(" "),
               _c("td", [
-                _c("p", [_vm._v("Edit")]),
+                _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                  _c("span", { staticClass: "material-icons" }, [
+                    _vm._v("edit")
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("p", [_vm._v("Borrar")])
+                _c("button", { staticClass: "btn btn-danger" }, [
+                  _c("span", { staticClass: "material-icons" }, [
+                    _vm._v("delete")
+                  ])
+                ])
               ])
             ]),
             _vm._v(" "),
@@ -46804,9 +46992,17 @@ var staticRenderFns = [
               _c("td", [_vm._v("@fat")]),
               _vm._v(" "),
               _c("td", [
-                _c("p", [_vm._v("Edit")]),
+                _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                  _c("span", { staticClass: "material-icons" }, [
+                    _vm._v("edit")
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("p", [_vm._v("Borrar")])
+                _c("button", { staticClass: "btn btn-danger" }, [
+                  _c("span", { staticClass: "material-icons" }, [
+                    _vm._v("delete")
+                  ])
+                ])
               ])
             ]),
             _vm._v(" "),
@@ -46836,9 +47032,17 @@ var staticRenderFns = [
               _c("td", [_vm._v("@twitter")]),
               _vm._v(" "),
               _c("td", [
-                _c("p", [_vm._v("Edit")]),
+                _c("button", { staticClass: "btn btn-warning mr-1" }, [
+                  _c("span", { staticClass: "material-icons" }, [
+                    _vm._v("edit")
+                  ])
+                ]),
                 _vm._v(" "),
-                _c("p", [_vm._v("Borrar")])
+                _c("button", { staticClass: "btn btn-danger" }, [
+                  _c("span", { staticClass: "material-icons" }, [
+                    _vm._v("delete")
+                  ])
+                ])
               ])
             ])
           ])
