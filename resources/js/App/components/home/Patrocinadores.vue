@@ -6,7 +6,7 @@
                 <img src="img/aliados/aliadoNew.png" class="rounded mr-1"  alt="Mintic">
                 <img src="img/aliados/camaraNew.png" class="rounded mr-1"  alt="Camara Comercio">
                 <img src="img/aliados/codaltecNew.png" class="rounded mr-1" width="260" alt="Codaltec">
-                <img src="img/aliados/gobierno.png" class="rounded mr-1" width="280" alt="gobierno de colombia">
+                <img src="img/aliados/gobierno.png" class="rounded mr-1" width="320" alt="gobierno de colombia">
                 <img src="img/aliados/ufpsNew.png" class="rounded mr-1" width="260" alt="ufps">
             </div>
         <!-- </div> -->

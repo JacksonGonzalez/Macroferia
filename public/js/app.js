@@ -45200,7 +45200,7 @@ var staticRenderFns = [
           staticClass: "rounded mr-1",
           attrs: {
             src: "img/aliados/gobierno.png",
-            width: "280",
+            width: "320",
             alt: "gobierno de colombia"
           }
         }),

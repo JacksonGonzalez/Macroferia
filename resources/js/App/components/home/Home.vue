@@ -13,7 +13,7 @@
                     </div>
                 </div>
             </div>
-            <patrocinadores></patrocinadores>
+            <!-- <patrocinadores></patrocinadores> -->
         </main>
         <footer-main></footer-main>
   </div>
