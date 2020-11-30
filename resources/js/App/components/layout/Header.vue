@@ -98,7 +98,7 @@
                 </div>
               </li>
                 
-                <p class="nav-link mb-0"  v-if="autenticado == true">Hola Usuario</p>
+                <p class="nav-link mb-0"  v-if="autenticado == true">Hola {{ this.usuario}}</p>
                 <button class="btn btn-danger" v-if="autenticado == true" aria-label="Salir" @click="logout"><span class="material-icons">exit_to_app</span></button>
                 
             </nav>
@@ -172,52 +172,71 @@
                             </div>
                             <div class="col-md-6">
                                 <form>
-                                  <div class="form-group">
-                                    <label for="name">Nombre</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Nombre Completo">
+                                  <div class="form-row">
+                                    <div class="form-group col-6">
+                                      <label for="name">Nombre</label>
+                                      <input v-model="registers.nombre" type="text" class="form-control" id="name" placeholder="Nombre Completo">
+                                    </div>
+                                    <div class="form-group col-6">
+                                      <label for="usuario">Usuario</label>
+                                      <input v-model="registers.usuario" type="text" class="form-control" id="usuario" placeholder="Usuario">
+                                    </div>
                                   </div>
-                                  <div class="form-group">
-                                    <label for="usuario">Usuario</label>
-                                    <input type="text" class="form-control" id="usuario" placeholder="Usuario">
+                                  <div class="form-row">
+                                    <div class="form-group col-6">
+                                      <label for="rol">Rol</label>
+                                      <select v-model="registers.idRol" class="form-control" id="rol">
+                                        <option value="1">Fabricante</option>
+                                        <option value="2">Comerciante</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-6">
+                                      <label for="email">Correo Electronico</label>
+                                      <input v-model="registers.email" type="email" class="form-control" id="email" placeholder="Correo Electronico">
+                                    </div>
                                   </div>
-                                  <div class="form-group">
-                                    <label for="rol">Rol</label>
-                                    <select class="form-control" id="rol">
-                                      <option>Fabricante</option>
-                                      <option>Comerciante</option>
-                                    </select>
+                                  
+                                  <div class="form-row">
+                                    <div class="form-group col-6">
+                                      <label for="password">Contraseña</label>
+                                      <input v-model="registers.password" type="password" class="form-control" id="password">
+                                    </div>
+                                    <div class="form-group col-6">
+                                      <label for="c_password">Confirme su Contraseña</label>
+                                      <input v-model="registers.c_password" type="password" class="form-control" id="c_password">
+                                    </div>
                                   </div>
-                                  <div class="form-group">
-                                    <label for="email">Correo Electronico</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                  
+                                  <div class="form-row">
+                                    <div class="form-group col-6">
+                                      <label for="telefono">Telefono</label>
+                                      <input v-model="registers.telefono" type="text" class="form-control" id="telefono" placeholder="Numero de Celular o Telefono">
+                                    </div>
+                                    <div class="form-group col-6">
+                                      <label for="pais">Pais</label>
+                                      <input v-model="registers.pais" type="text" class="form-control" id="pais" placeholder="Pais">
+                                    </div>
                                   </div>
-                                  <div class="form-group">
-                                    <label for="password">Contraseña</label>
-                                    <input type="password" class="form-control" id="password">
+
+                                  <div class="form-row">
+                                    <div class="form-group col-4">
+                                      <label for="departamento">Departamento</label>
+                                      <input v-model="registers.departamento" type="text" class="form-control" id="departamento" placeholder="Departamento">
+                                    </div>
+                                    <div class="form-group col-4">
+                                      <label for="ciudad">Ciudad</label>
+                                      <input v-model="registers.ciudad" type="text" class="form-control" id="ciudad" placeholder="Ciudad">
+                                    </div>
+                                    <div class="form-group col-4">
+                                      <label for="adres">Direccion</label>
+                                      <input v-model="registers.direccion" type="text" class="form-control" id="adres" placeholder="Direccion">
+                                    </div>
                                   </div>
-                                  <div class="form-group">
-                                    <label for="telefono">Telefono</label>
-                                    <input type="text" class="form-control" id="telefono" placeholder="Numero de Celular o Telefono">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="pais">Pais</label>
-                                    <input type="text" class="form-control" id="pais" placeholder="Pais">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="departamento">Departamento</label>
-                                    <input type="text" class="form-control" id="departamento" placeholder="Departamento">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="ciudad">Ciudad</label>
-                                    <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="adres">Direccion</label>
-                                    <input type="text" class="form-control" id="adres" placeholder="Direccion">
-                                  </div>
+                                  
+                                  
+
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                  <button type="submit" class="btn btn-primary">Registrarse</button>
+                                  <button type="submit" class="btn btn-primary" @click.prevent="registrarse">Registrarse</button>
                                 </form>
                             </div>
                         </div>
@@ -243,7 +262,21 @@ export default {
         email: "",
         password: "",
       },
+      registers: {
+        nombre: "",
+        usuario: "",
+        idRol: "",
+        email: "",
+        password: "",
+        c_password: "",
+        telefono: "",
+        pais: "",
+        departamento: "",
+        ciudad: "",
+        direccion: ""
+      },
       errorLogin: false,
+      usuario : "",
     };
   },
   components: {},
@@ -253,7 +286,8 @@ export default {
         .then((res) => {
           if (res) {
             this.autenticado = true;
-            // this.$router.push("/panel");
+            // console.log(res.data.user);
+            this.usuario = res.data.user.usuario;
           }
         })
         .catch((err) => {
@@ -274,6 +308,7 @@ export default {
             // actualizar la data
             // console.log(res.data);
             this.$store.commit("setToken", res.data.success.token);
+            this.usuario = res.data.user.usuario;
             // console.log(res.data.success.token);
             this.autenticado = true;
             this.errorLogin = false;
@@ -300,6 +335,28 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+    },
+
+    registrarse(){
+      axios
+        .post("/api/register", this.registers)
+        .then((res) => {
+          if (res.data.success) {
+            // actualizar la data
+            // console.log(res.data);
+            this.$store.commit("setToken", res.data.success.token);
+            // console.log(res.data);
+            this.usuario = res.data.user.usuario;
+            this.autenticado = true;
+            // this.errorLogin = false;
+            this.$router.push('/');
+            $('#registerModal').modal('hide');
+          }
+        })
+        .catch((err) => {
+          // this.errorLogin = true;
+          console.log("Error :", err);
+        });
     }
   },
 };
