@@ -4,7 +4,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><span class="material-icons">menu</span></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <router-link to="/" class="nav-link">Inicio</router-link>
@@ -21,7 +21,7 @@
                 <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                 <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
+                    <span class="material-icons">search</span>
                 </button>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <!-- Messages Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-comments"></i>
+                <span class="material-icons">question_answer</span>
                 <span class="badge badge-danger navbar-badge">3</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -90,7 +90,7 @@
             <!-- Notifications Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="far fa-bell"></i>
+                <span class="material-icons">notifications</span>
                 <span class="badge badge-warning navbar-badge">15</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
@@ -114,9 +114,9 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                 </div>
             </li>
+            <p class="nav-link mb-0" >Hola {{ this.usuario}}</p>
             <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-                    class="fas fa-th-large"></i></a>
+                <button class="btn btn-danger" aria-label="Salir" @click="logout"><span class="material-icons">exit_to_app</span></button>
             </li>
             </ul>
         </nav>
@@ -126,6 +126,47 @@
 <script>
 export default {
     name: 'Header',
+    data() {
+        return {
+            autenticado: '',
+            usuario : "",
+        };
+    },
+    mounted() {
+        if (this.$store.state.token != "") {
+        axios.post("/api/checkToken", "",{ headers:{ Authorization: "Bearer "+this.$store.state.token }})
+            .then((res) => {
+            if (res) {
+                this.autenticado = true;
+                // console.log(res.data.user);
+                this.usuario = res.data.user.usuario;
+            }
+            })
+            .catch((err) => {
+            this.autenticado = false;
+            console.log(err);
+            this.$store.commit("clearToken");
+            });
+        } else {
+            this.autenticado = false;
+            this.$router.push('/');
+        }
+    },
+    methods: {
+        logout(){
+            axios.post('/api/logout', "",{ headers:{ Authorization: "Bearer "+this.$store.state.token }})
+                .then((res) => {
+                if (res) {
+                this.autenticado = false;
+                this.$store.commit("clearToken");
+                this.$router.push("/");
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        },
+    },
 }
 </script>
 
