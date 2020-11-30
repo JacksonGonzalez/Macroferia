@@ -44635,9 +44635,7 @@ var render = function() {
           _vm._v(" "),
           _c("categorias"),
           _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c("patrocinadores")
+          _vm._m(0)
         ],
         1
       ),
