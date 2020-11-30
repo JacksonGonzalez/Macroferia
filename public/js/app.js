@@ -3258,6 +3258,100 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3266,7 +3360,17 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       loading: false,
-      roles: []
+      roles: [],
+      rol: {
+        nombre: '',
+        tipo: '',
+        roles: '',
+        productos: '',
+        autorizar: '',
+        categorias: '',
+        banner: '',
+        usuarios: ''
+      }
     };
   },
   components: {
@@ -3289,8 +3393,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         if (res) {
           // console.log(res.data.roles);
-          _this.roles = res.data.roles;
-          console.log(_this.roles);
+          _this.roles = res.data.roles; // console.log(this.roles);
         }
       })["catch"](function (err) {
         console.log(err);
@@ -3299,23 +3402,19 @@ __webpack_require__.r(__webpack_exports__);
     addRol: function addRol() {
       var _this2 = this;
 
-      this.rolModule = this.checkedNames.join();
-      axios.post("/api/admin/roles/", {
-        name: this.rolName,
-        description: this.rolDescription,
-        module: this.rolModule
-      }, {
+      axios.post("/api/admin/roles", this.rol, {
         headers: {
           Authorization: "Bearer " + this.$store.state.token
         }
       }).then(function (res) {
         if (res) {
           // console.log(res.data.roles);
-          // this.roles = res.data.roles
-          // console.log(this.roles);
+          _this2.roles = res.data.roles;
+          console.log(_this2.roles);
+
           _this2.getRoles();
 
-          $('#addRolModal').modal('toggle');
+          $('#addRolModal').modal('hide');
         }
       })["catch"](function (err) {
         console.log(err);
@@ -43911,7 +44010,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [
                             rol.tipo == 0
-                              ? _c("p", [_vm._v("Cliente")])
+                              ? _c("p", [_vm._v("Usuario")])
                               : _vm._e(),
                             rol.tipo == 1
                               ? _c("p", [_vm._v("Admin")])
@@ -43981,7 +44080,465 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("footer-main")
+      _c("footer-main"),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "addRolModal",
+            tabindex: "-1",
+            "aria-labelledby": "modalAddRol",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog modal-lg" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "container-fluid" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _vm._m(5),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("form", [
+                        _c("div", { staticClass: "form-row" }, [
+                          _c("div", { staticClass: "form-group col-6" }, [
+                            _c("label", { attrs: { for: "name" } }, [
+                              _vm._v("Nombre")
+                            ]),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.rol.nombre,
+                                  expression: "rol.nombre"
+                                }
+                              ],
+                              staticClass: "form-control",
+                              attrs: {
+                                type: "text",
+                                id: "name",
+                                placeholder: "Nombre",
+                                required: ""
+                              },
+                              domProps: { value: _vm.rol.nombre },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.rol,
+                                    "nombre",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group col-6" }, [
+                            _c("label", { attrs: { for: "tipo" } }, [
+                              _vm._v("Tipo")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.rol.tipo,
+                                    expression: "rol.tipo"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { id: "tipo", required: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.rol,
+                                      "tipo",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("Administrador")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "0" } }, [
+                                  _vm._v("Usuario")
+                                ])
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-row" }, [
+                          _c("div", { staticClass: "form-group col-6" }, [
+                            _c("label", { attrs: { for: "prodUser" } }, [
+                              _vm._v("Productos usuario")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.rol.productos,
+                                    expression: "rol.productos"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { id: "prodUser", required: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.rol,
+                                      "productos",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("Si")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "0" } }, [
+                                  _vm._v("No")
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group col-6" }, [
+                            _c("label", { attrs: { for: "prodAdmin" } }, [
+                              _vm._v("Productos Administrador")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.rol.autorizar,
+                                    expression: "rol.autorizar"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { id: "prodAdmin", required: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.rol,
+                                      "autorizar",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("Si")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "0" } }, [
+                                  _vm._v("No")
+                                ])
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-row" }, [
+                          _c("div", { staticClass: "form-group col-6" }, [
+                            _c("label", { attrs: { for: "rol" } }, [
+                              _vm._v("Roles")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.rol.roles,
+                                    expression: "rol.roles"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { id: "rol", required: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.rol,
+                                      "roles",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("Si")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "0" } }, [
+                                  _vm._v("No")
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group col-6" }, [
+                            _c("label", { attrs: { for: "catg" } }, [
+                              _vm._v("Categorias")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.rol.categorias,
+                                    expression: "rol.categorias"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { id: "catg", required: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.rol,
+                                      "categorias",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("Si")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "0" } }, [
+                                  _vm._v("No")
+                                ])
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-row" }, [
+                          _c("div", { staticClass: "form-group col-6" }, [
+                            _c("label", { attrs: { for: "bann" } }, [
+                              _vm._v("Banners")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.rol.banner,
+                                    expression: "rol.banner"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { id: "bann", required: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.rol,
+                                      "banner",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("Si")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "0" } }, [
+                                  _vm._v("No")
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "form-group col-6" }, [
+                            _c("label", { attrs: { for: "user" } }, [
+                              _vm._v("Usuarios")
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.rol.usuarios,
+                                    expression: "rol.usuarios"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: { id: "user", required: "" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.rol,
+                                      "usuarios",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("option", { attrs: { value: "1" } }, [
+                                  _vm._v("Si")
+                                ]),
+                                _vm._v(" "),
+                                _c("option", { attrs: { value: "0" } }, [
+                                  _vm._v("No")
+                                ])
+                              ]
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-secondary",
+                            attrs: { type: "button", "data-dismiss": "modal" }
+                          },
+                          [_vm._v("Cancelar")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.addRol($event)
+                              }
+                            }
+                          },
+                          [_vm._v("Crear")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
     ],
     1
   )
@@ -44007,9 +44564,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col" }, [
-        _c("button", { staticClass: "btn btn-primary float-left mr-3" }, [
-          _vm._v("Añadir Rol")
-        ])
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary float-left mr-3",
+            attrs: { "data-toggle": "modal", "data-target": "#addRolModal" }
+          },
+          [_vm._v("Añadir Rol")]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col" })
@@ -44057,6 +44619,40 @@ var staticRenderFns = [
       _c("button", { staticClass: "btn btn-danger" }, [
         _c("span", { staticClass: "material-icons" }, [_vm._v("delete")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title", attrs: { id: "modalAddRol" } }, [
+        _vm._v("Crear Rol")
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6 text-center" }, [
+      _c("img", {
+        staticClass: "img-fluid rounded mx-auto",
+        attrs: { src: "img/imagenmacro.png", alt: "macroferia" }
+      })
     ])
   }
 ]

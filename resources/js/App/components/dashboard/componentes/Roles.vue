@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col">
                         <!-- <h2 class="text-center">Roles</h2>  -->
-                        <button class="btn btn-primary float-left mr-3">Añadir Rol</button>
+                        <button class="btn btn-primary float-left mr-3" data-toggle="modal" data-target="#addRolModal">Añadir Rol</button>
                     </div>
                     <div class="col">
                     </div>
@@ -61,7 +61,7 @@
                         <tr v-for="(rol, index) in roles" :key="rol.id">
                         <th scope="row">{{ index+1 }}</th>
                         <td>{{rol.nombre}}</td>
-                        <td><p v-if="rol.tipo == 0">Cliente</p><p v-if="rol.tipo == 1">Admin</p></td>
+                        <td><p v-if="rol.tipo == 0">Usuario</p><p v-if="rol.tipo == 1">Admin</p></td>
                         <td><p v-if="rol.roles == 0">No</p><p v-if="rol.roles == 1">Si</p></td>
                         <td><p v-if="rol.productos == 0">No</p><p v-if="rol.productos == 1">Si</p></td>
                         <td><p v-if="rol.autorizar == 0">No</p><p v-if="rol.autorizar == 1">Si</p></td>
@@ -93,6 +93,100 @@
 
         <!-- Main Footer -->
         <footer-main></footer-main>
+
+        <!-- MODAL AÑADIR ROL -->
+        <div class="modal fade" id="addRolModal" tabindex="-1" aria-labelledby="modalAddRol" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalAddRol">Crear Rol</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                    <img src="img/imagenmacro.png" alt="macroferia" class="img-fluid rounded mx-auto">
+                                </div>
+                                <div class="col-md-6">
+                                    <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                        <label for="name">Nombre</label>
+                                        <input v-model="rol.nombre" type="text" class="form-control" id="name" placeholder="Nombre" required>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="tipo">Tipo</label>
+                                            <select v-model="rol.tipo" class="form-control" id="tipo" required>
+                                                <option value="1">Administrador</option>
+                                                <option value="0">Usuario</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="prodUser">Productos usuario</label>
+                                            <select v-model="rol.productos" class="form-control" id="prodUser" required>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="prodAdmin">Productos Administrador</label>
+                                            <select v-model="rol.autorizar" class="form-control" id="prodAdmin" required>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="rol">Roles</label>
+                                            <select v-model="rol.roles" class="form-control" id="rol" required>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="catg">Categorias</label>
+                                            <select v-model="rol.categorias" class="form-control" id="catg" required>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="bann">Banners</label>
+                                            <select v-model="rol.banner" class="form-control" id="bann" required>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label for="user">Usuarios</label>
+                                            <select v-model="rol.usuarios" class="form-control" id="user" required>
+                                                <option value="1">Si</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary" @click.prevent="addRol">Crear</button>
+                                    </form>
+                                </div>
+                            </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- FIN MODAL AÑADIR ROL -->
         </div>
 </template>
 
@@ -107,6 +201,16 @@
             return {
                 loading: false,
                 roles: [],
+                rol: {
+                    nombre: '',
+                    tipo: '',
+                    roles: '',
+                    productos: '',
+                    autorizar: '',
+                    categorias: '',
+                    banner: '',
+                    usuarios: ''
+                },
             }
         },
         components:{
@@ -125,7 +229,7 @@
                     if (res) {
                         // console.log(res.data.roles);
                         this.roles = res.data.roles
-                        console.log(this.roles);
+                        // console.log(this.roles);
                     }
                     })
                     .catch((err) => {
@@ -134,17 +238,15 @@
             },
 
             addRol: function() {
-            this.rolModule = this.checkedNames.join();
-            axios.post("/api/admin/roles/", {
-                name: this.rolName, description:this.rolDescription, module: this.rolModule 
-            },{ headers:{ Authorization: "Bearer " + this.$store.state.token }})
+            
+                axios.post("/api/admin/roles", this.rol, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
                 .then((res) => {
                 if (res) {
                     // console.log(res.data.roles);
-                    // this.roles = res.data.roles
-                    // console.log(this.roles);
+                    this.roles = res.data.roles
+                    console.log(this.roles);
                     this.getRoles();
-                    $('#addRolModal').modal('toggle')
+                    $('#addRolModal').modal('hide');
                 }
                 })
                 .catch((err) => {

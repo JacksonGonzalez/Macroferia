@@ -31,9 +31,14 @@ class RolController extends Controller
     public function store(Request $request)
     {
         $input = $request->validate([
-            'name' => 'required|min:3|string',
-            'description' => 'string',
-            'module' => 'required'
+            'nombre' => 'required|min:3|string',
+            'tipo' => 'required',
+            'roles' => 'required',
+            'productos' => 'required',
+            'autorizar' => 'required',
+            'categorias' => 'required',
+            'banner' => 'required',
+            'usuarios' => 'required',
         ]);
         $input = $request->all();
         Rol::create($input);
