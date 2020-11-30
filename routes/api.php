@@ -38,7 +38,7 @@ Route::group([//
 ], function () {
 
     // Route::resource('categories', 'CategoryController');
-    // Route::resource('roles', 'RolController');
+    Route::resource('roles', 'RolController');
     // Route::resource('products', 'ProductController');
     Route::resource('users', 'UserController');
     // Route::resource('suppliers', 'SupplierController');

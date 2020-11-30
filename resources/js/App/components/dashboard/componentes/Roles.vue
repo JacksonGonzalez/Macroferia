@@ -16,12 +16,13 @@
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Roles</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Rol</a></li>
                     <li class="breadcrumb-item active">Dashboard v3</li>
                     </ol>
-                </div><!-- /.col -->
+                </div> -->
+                <!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
             </div>
@@ -33,9 +34,9 @@
                 <div class="row">
                     <div class="col">
                         <!-- <h2 class="text-center">Roles</h2>  -->
+                        <button class="btn btn-primary float-left mr-3">Añadir Rol</button>
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary float-right mr-3">Añadir Rol</button>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -45,49 +46,29 @@
                         <tr>
                         <th scope="col">#</th>
                         <th scope="col">nombre</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Precio Minimo</th>
-                        <th scope="col">Precio Maximo</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Roles</th>
+                        <th scope="col">Productos Usuario</th>
+                        <th scope="col">Productos Admin</th>
+                        <th scope="col">Categorias</th>
+                        <th scope="col">Banners</th>
+                        <th scope="col">Usuarios</th>
+                        <th scope="col">Creado</th>
                         <th scope="col">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>
-                            <button class="btn btn-warning mr-1">
-                                <span class="material-icons">edit</span>
-                            </button>
-                            <button class="btn btn-danger">
-                                <span class="material-icons">delete</span>
-                            </button>
-                        </td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td>
-                            <button class="btn btn-warning mr-1">
-                                <span class="material-icons">edit</span>
-                            </button>
-                            <button class="btn btn-danger">
-                                <span class="material-icons">delete</span>
-                            </button>
-                        </td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
+                        <tr v-for="(rol, index) in roles" :key="rol.id">
+                        <th scope="row">{{ index+1 }}</th>
+                        <td>{{rol.nombre}}</td>
+                        <td><p v-if="rol.tipo == 0">Cliente</p><p v-if="rol.tipo == 1">Admin</p></td>
+                        <td><p v-if="rol.roles == 0">No</p><p v-if="rol.roles == 1">Si</p></td>
+                        <td><p v-if="rol.productos == 0">No</p><p v-if="rol.productos == 1">Si</p></td>
+                        <td><p v-if="rol.autorizar == 0">No</p><p v-if="rol.autorizar == 1">Si</p></td>
+                        <td><p v-if="rol.categorias == 0">No</p><p v-if="rol.categorias == 1">Si</p></td>
+                        <td><p v-if="rol.banner == 0">No</p><p v-if="rol.banner == 1">Si</p></td>
+                        <td><p v-if="rol.usuarios == 0">No</p><p v-if="rol.usuarios == 1">Si</p></td>
+                        <td>{{rol.created_at}}</td>
                         <td>
                             <button class="btn btn-warning mr-1">
                                 <span class="material-icons">edit</span>
@@ -124,7 +105,8 @@
         name: 'Roles',
         data(){
             return {
-                loading: false
+                loading: false,
+                roles: [],
             }
         },
         components:{
@@ -133,7 +115,42 @@
             'sidebar' : Sidebar,
         },
         mounted() {
-            
+            this.getRoles();
+        },
+        methods : {
+            getRoles: function() {
+            // console.log(this.$store.state.token);
+                axios.get("/api/admin/roles/", { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                    .then((res) => {
+                    if (res) {
+                        // console.log(res.data.roles);
+                        this.roles = res.data.roles
+                        console.log(this.roles);
+                    }
+                    })
+                    .catch((err) => {
+                    console.log(err);
+                    });
+            },
+
+            addRol: function() {
+            this.rolModule = this.checkedNames.join();
+            axios.post("/api/admin/roles/", {
+                name: this.rolName, description:this.rolDescription, module: this.rolModule 
+            },{ headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                .then((res) => {
+                if (res) {
+                    // console.log(res.data.roles);
+                    // this.roles = res.data.roles
+                    // console.log(this.roles);
+                    this.getRoles();
+                    $('#addRolModal').modal('toggle')
+                }
+                })
+                .catch((err) => {
+                console.log(err);
+                });
+            }
         }
     }
 </script>

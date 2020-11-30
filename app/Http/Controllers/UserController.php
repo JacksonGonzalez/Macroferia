@@ -13,9 +13,6 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api');
-
-        
-        
     }
 
     public function Autorizacion(){
@@ -32,8 +29,6 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        
-        
         if($request->has('txtBuscar')){
             $users = User::WHERE('name', 'like', '%'.$request->txtBuscar.'%')
                     ->orWhere('document_number', 'like', '%'.$request->txtBuscar.'%')->get();

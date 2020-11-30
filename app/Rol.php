@@ -10,7 +10,7 @@ class Rol extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'nombre', 'productos', 'autorizar', 'categorias', 'banner', 'usuarios', 'created_at', 'updated_at', 'deleted_at'
+        'nombre', 'productos', 'autorizar', 'categorias', 'banner', 'usuarios', 'created_at', 'updated_at', 'deleted_at', 'roles', 'tipo'
     ];
 
     public function users()
