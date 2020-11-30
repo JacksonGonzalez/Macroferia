@@ -66,13 +66,13 @@
                   </div>
                 </li>
                 
-                <li class="nav-item">
+                <li class="nav-item" v-if="tipoRol == 1">
                   <router-link class="nav-link" to="/panel">Panel de Control</router-link>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="tipoRol == 0">
                   <router-link class="nav-link" to="/productos">Mis Productos</router-link>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" v-if="autenticado == true">
                   <router-link class="nav-link" to="/mensage">Mensajes</router-link>
                 </li>
                 <li class="nav-item">
@@ -277,6 +277,8 @@ export default {
       },
       errorLogin: false,
       usuario : "",
+      tipoRol: 3,
+      idRol: '',
     };
   },
   components: {},
@@ -288,6 +290,8 @@ export default {
             this.autenticado = true;
             // console.log(res.data.user);
             this.usuario = res.data.user.usuario;
+            // this.idRol = res.data.user.idRol;
+            this.validartipo(res.data.user.idRol);
           }
         })
         .catch((err) => {
@@ -298,8 +302,27 @@ export default {
     } else {
       this.autenticado = false;
     }
+
+    
   },
   methods: {
+    validartipo($idRol){
+        // alert($idRol);
+        this.idRol = $idRol;
+        axios.get("/api/admin/roles/"+this.idRol, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+        .then((res) => {
+          if (res.data) {
+            // actualizar la data
+            // console.log(res.data.rol);
+            this.tipoRol = res.data.rol.tipo;
+          }
+        })
+        .catch((err) => {
+          console.log("Error :", err);
+        });
+    
+    
+    },
     login() {
       axios
         .post("/api/login", this.credentials)
@@ -310,6 +333,7 @@ export default {
             this.$store.commit("setToken", res.data.success.token);
             this.usuario = res.data.user.usuario;
             // console.log(res.data.success.token);
+            this.validartipo(res.data.user.idRol);
             this.autenticado = true;
             this.errorLogin = false;
             this.$router.push('/');
@@ -329,6 +353,7 @@ export default {
         if (res) {
           this.autenticado = false;
           this.$store.commit("clearToken");
+          this.tipoRol=3;
           this.$router.push("/");
         }
       })
@@ -347,6 +372,7 @@ export default {
             this.$store.commit("setToken", res.data.success.token);
             // console.log(res.data);
             this.usuario = res.data.user.usuario;
+            this.validartipo(res.data.user.idRol);
             this.autenticado = true;
             // this.errorLogin = false;
             this.$router.push('/');

@@ -4620,7 +4620,9 @@ __webpack_require__.r(__webpack_exports__);
         direccion: ""
       },
       errorLogin: false,
-      usuario: ""
+      usuario: "",
+      tipoRol: 3,
+      idRol: ''
     };
   },
   components: {},
@@ -4636,7 +4638,9 @@ __webpack_require__.r(__webpack_exports__);
         if (res) {
           _this.autenticado = true; // console.log(res.data.user);
 
-          _this.usuario = res.data.user.usuario;
+          _this.usuario = res.data.user.usuario; // this.idRol = res.data.user.idRol;
+
+          _this.validartipo(res.data.user.idRol);
         }
       })["catch"](function (err) {
         _this.autenticado = false;
@@ -4649,31 +4653,52 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    login: function login() {
+    validartipo: function validartipo($idRol) {
       var _this2 = this;
+
+      // alert($idRol);
+      this.idRol = $idRol;
+      axios.get("/api/admin/roles/" + this.idRol, {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res.data) {
+          // actualizar la data
+          // console.log(res.data.rol);
+          _this2.tipoRol = res.data.rol.tipo;
+        }
+      })["catch"](function (err) {
+        console.log("Error :", err);
+      });
+    },
+    login: function login() {
+      var _this3 = this;
 
       axios.post("/api/login", this.credentials).then(function (res) {
         if (res.data.success) {
           // actualizar la data
           // console.log(res.data);
-          _this2.$store.commit("setToken", res.data.success.token);
+          _this3.$store.commit("setToken", res.data.success.token);
 
-          _this2.usuario = res.data.user.usuario; // console.log(res.data.success.token);
+          _this3.usuario = res.data.user.usuario; // console.log(res.data.success.token);
 
-          _this2.autenticado = true;
-          _this2.errorLogin = false;
+          _this3.validartipo(res.data.user.idRol);
 
-          _this2.$router.push('/');
+          _this3.autenticado = true;
+          _this3.errorLogin = false;
+
+          _this3.$router.push('/');
 
           $('#loginModal').modal('hide');
         }
       })["catch"](function (err) {
-        _this2.errorLogin = true;
+        _this3.errorLogin = true;
         console.log("Error :", err);
       }); // this.errorLogin = true;
     },
     logout: function logout() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.post('/api/logout', "", {
         headers: {
@@ -4681,30 +4706,35 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (res) {
         if (res) {
-          _this3.autenticado = false;
+          _this4.autenticado = false;
 
-          _this3.$store.commit("clearToken");
+          _this4.$store.commit("clearToken");
 
-          _this3.$router.push("/");
+          _this4.tipoRol = 3;
+
+          _this4.$router.push("/");
         }
       })["catch"](function (err) {
         console.log(err);
       });
     },
     registrarse: function registrarse() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.post("/api/register", this.registers).then(function (res) {
         if (res.data.success) {
           // actualizar la data
           // console.log(res.data);
-          _this4.$store.commit("setToken", res.data.success.token); // console.log(res.data);
+          _this5.$store.commit("setToken", res.data.success.token); // console.log(res.data);
 
 
-          _this4.usuario = res.data.user.usuario;
-          _this4.autenticado = true; // this.errorLogin = false;
+          _this5.usuario = res.data.user.usuario;
 
-          _this4.$router.push('/');
+          _this5.validartipo(res.data.user.idRol);
+
+          _this5.autenticado = true; // this.errorLogin = false;
+
+          _this5.$router.push('/');
 
           $('#registerModal').modal('hide');
         }
@@ -46617,47 +46647,59 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        { staticClass: "nav-link", attrs: { to: "/panel" } },
-                        [_vm._v("Panel de Control")]
+                  _vm.tipoRol == 1
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: "/panel" }
+                            },
+                            [_vm._v("Panel de Control")]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { to: "/productos" }
-                        },
-                        [_vm._v("Mis Productos")]
+                  _vm.tipoRol == 0
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: "/productos" }
+                            },
+                            [_vm._v("Mis Productos")]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "nav-item" },
-                    [
-                      _c(
-                        "router-link",
-                        { staticClass: "nav-link", attrs: { to: "/mensage" } },
-                        [_vm._v("Mensajes")]
+                  _vm.autenticado == true
+                    ? _c(
+                        "li",
+                        { staticClass: "nav-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "nav-link",
+                              attrs: { to: "/mensage" }
+                            },
+                            [_vm._v("Mensajes")]
+                          )
+                        ],
+                        1
                       )
-                    ],
-                    1
-                  ),
+                    : _vm._e(),
                   _vm._v(" "),
                   _c(
                     "li",
