@@ -16,6 +16,8 @@ class CreateRolsTable extends Migration
         Schema::create('rols', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->boolean('tipo')->default(0);
+            $table->boolean('roles')->default(0);
             $table->boolean('productos')->default(0);
             $table->boolean('autorizar')->default(0);
             $table->boolean('categorias')->default(0);

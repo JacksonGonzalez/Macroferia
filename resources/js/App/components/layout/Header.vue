@@ -84,19 +84,23 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
             <nav class="navbar">
-              <li class="nav-link dropdown">
+              <li class="nav-link dropdown" v-if="autenticado == false">
                 <a class="btn btn-success nav-item dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Ingresar
                 </a>
-                <div class="dropdown-menu text-black" aria-labelledby="navbarDropdownMenuLink">
-                  <!-- <a v-for="(item, index) in categoriasArray" :key="index"  
-                  class="dropdown-item" :href="/productosxcategoria/+item" >Categoria {{item}}</a> -->
+
+                <div class="dropdown-menu text-black" aria-labelledby="navbarDropdownMenuLink" >
+                  
                   <button type="button" class="btn btn-link text-black" data-toggle="modal" data-target="#loginModal">
                   Ingresar</button>
                   <button type="button" class="btn btn-link text-black" data-toggle="modal" data-target="#registerModal">
                   Registrarse</button>
                 </div>
               </li>
+                
+                <p class="nav-link mb-0"  v-if="autenticado == true">Hola Usuario</p>
+                <button class="btn btn-danger" v-if="autenticado == true" aria-label="Salir" @click="logout"><span class="material-icons">exit_to_app</span></button>
+                
             </nav>
               
             <!-- <button class="btn btn-success ml-2 my-2 my-sm-0" type="submit">Iniciar Sesion</button> -->
@@ -126,20 +130,20 @@
                             <div class="col-md-6">
                                 <form>
                                   <div class="form-group">
-                                    <label for="exampleInputEmail1">Correo Electronico</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    <label for="emailLogin">Correo Electronico</label>
+                                    <input type="email" class="form-control" id="emailLogin" aria-describedby="emailLoginHelp" v-model="credentials.email">
+                                    <div class="alert alert-danger" role="alert" v-if="errorLogin == true" > Correo o Contraseña incorrecta</div>
                                   </div>
                                   <div class="form-group">
-                                    <label for="exampleInputPassword1">Contraseña</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <label for="passwordLogin">Contraseña</label>
+                                    <input type="password" class="form-control" id="passwordLogin" v-model="credentials.password">
                                   </div>
-                                  <div class="form-group form-check">
+                                  <!-- <div class="form-group form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                  </div>
+                                  </div> -->
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                  <button type="submit" class="btn btn-primary">Ingresar</button>
+                                  <button type="submit" class="btn btn-primary" @click.prevent="login">Ingresar</button>
                                 </form>
                             </div>
                         </div>
@@ -233,12 +237,71 @@ export default {
   name: "Header",
   data() {
     return {
-      loading: false,
+      autenticado: '',
       categoriasArray : [1, 2],
+      credentials: {
+        email: "",
+        password: "",
+      },
+      errorLogin: false,
     };
   },
   components: {},
-  mounted() {},
+  mounted() {
+        if (this.$store.state.token != "") {
+      axios.post("/api/checkToken", "",{ headers:{ Authorization: "Bearer "+this.$store.state.token }})
+        .then((res) => {
+          if (res) {
+            this.autenticado = true;
+            // this.$router.push("/panel");
+          }
+        })
+        .catch((err) => {
+          this.autenticado = false;
+          console.log(err);
+          this.$store.commit("clearToken");
+        });
+    } else {
+      this.autenticado = false;
+    }
+  },
+  methods: {
+    login() {
+      axios
+        .post("/api/login", this.credentials)
+        .then((res) => {
+          if (res.data.success) {
+            // actualizar la data
+            // console.log(res.data);
+            this.$store.commit("setToken", res.data.success.token);
+            // console.log(res.data.success.token);
+            this.autenticado = true;
+            this.errorLogin = false;
+            this.$router.push('/');
+            $('#loginModal').modal('hide');
+          }
+        })
+        .catch((err) => {
+          this.errorLogin = true;
+          console.log("Error :", err);
+        });
+        // this.errorLogin = true;
+    },
+
+    logout(){
+        axios.post('/api/logout', "",{ headers:{ Authorization: "Bearer "+this.$store.state.token }})
+        .then((res) => {
+        if (res) {
+          this.autenticado = false;
+          this.$store.commit("clearToken");
+          this.$router.push("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  },
 };
 </script>
 

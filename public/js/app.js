@@ -4393,16 +4393,89 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
     return {
-      loading: false,
-      categoriasArray: [1, 2]
+      autenticado: '',
+      categoriasArray: [1, 2],
+      credentials: {
+        email: "",
+        password: ""
+      },
+      errorLogin: false
     };
   },
   components: {},
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var _this = this;
+
+    if (this.$store.state.token != "") {
+      axios.post("/api/checkToken", "", {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res) {
+          _this.autenticado = true; // this.$router.push("/panel");
+        }
+      })["catch"](function (err) {
+        _this.autenticado = false;
+        console.log(err);
+
+        _this.$store.commit("clearToken");
+      });
+    } else {
+      this.autenticado = false;
+    }
+  },
+  methods: {
+    login: function login() {
+      var _this2 = this;
+
+      axios.post("/api/login", this.credentials).then(function (res) {
+        if (res.data.success) {
+          // actualizar la data
+          // console.log(res.data);
+          _this2.$store.commit("setToken", res.data.success.token); // console.log(res.data.success.token);
+
+
+          _this2.autenticado = true;
+          _this2.errorLogin = false;
+
+          _this2.$router.push('/');
+
+          $('#loginModal').modal('hide');
+        }
+      })["catch"](function (err) {
+        _this2.errorLogin = true;
+        console.log("Error :", err);
+      }); // this.errorLogin = true;
+    },
+    logout: function logout() {
+      var _this3 = this;
+
+      axios.post('/api/logout', "", {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res) {
+          _this3.autenticado = false;
+
+          _this3.$store.commit("clearToken");
+
+          _this3.$router.push("/");
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -45848,7 +45921,51 @@ var render = function() {
               _vm._v(" "),
               _vm._m(1),
               _vm._v(" "),
-              _vm._m(2)
+              _c("nav", { staticClass: "navbar" }, [
+                _vm.autenticado == false
+                  ? _c("li", { staticClass: "nav-link dropdown" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "btn btn-success nav-item dropdown-toggle text-white",
+                          attrs: {
+                            href: "#",
+                            id: "navbarDropdownMenuLink",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [_vm._v("\n                Ingresar\n              ")]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(2)
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.autenticado == true
+                  ? _c("p", { staticClass: "nav-link mb-0" }, [
+                      _vm._v("Hola Usuario")
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.autenticado == true
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { "aria-label": "Salir" },
+                        on: { click: _vm.logout }
+                      },
+                      [
+                        _c("span", { staticClass: "material-icons" }, [
+                          _vm._v("exit_to_app")
+                        ])
+                      ]
+                    )
+                  : _vm._e()
+              ])
             ]
           )
         ],
@@ -45856,9 +45973,142 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _vm._m(3),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "loginModal",
+          tabindex: "-1",
+          "aria-labelledby": "loginModalLabel",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog modal-lg" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(3),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("div", { staticClass: "container-fluid" }, [
+                _c("div", { staticClass: "row" }, [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-6" }, [
+                    _c("form", [
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "emailLogin" } }, [
+                          _vm._v("Correo Electronico")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.credentials.email,
+                              expression: "credentials.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "email",
+                            id: "emailLogin",
+                            "aria-describedby": "emailLoginHelp"
+                          },
+                          domProps: { value: _vm.credentials.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.credentials,
+                                "email",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.errorLogin == true
+                          ? _c(
+                              "div",
+                              {
+                                staticClass: "alert alert-danger",
+                                attrs: { role: "alert" }
+                              },
+                              [_vm._v(" Correo o Contraseña incorrecta")]
+                            )
+                          : _vm._e()
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group" }, [
+                        _c("label", { attrs: { for: "passwordLogin" } }, [
+                          _vm._v("Contraseña")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.credentials.password,
+                              expression: "credentials.password"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "password", id: "passwordLogin" },
+                          domProps: { value: _vm.credentials.password },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.credentials,
+                                "password",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary",
+                          attrs: { type: "button", "data-dismiss": "modal" }
+                        },
+                        [_vm._v("Cancelar")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.login($event)
+                            }
+                          }
+                        },
+                        [_vm._v("Ingresar")]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    ),
     _vm._v(" "),
-    _vm._m(4)
+    _vm._m(5)
   ])
 }
 var staticRenderFns = [
@@ -45906,204 +46156,76 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", { staticClass: "navbar" }, [
-      _c("li", { staticClass: "nav-link dropdown" }, [
+    return _c(
+      "div",
+      {
+        staticClass: "dropdown-menu text-black",
+        attrs: { "aria-labelledby": "navbarDropdownMenuLink" }
+      },
+      [
         _c(
-          "a",
+          "button",
           {
-            staticClass: "btn btn-success nav-item dropdown-toggle text-white",
+            staticClass: "btn btn-link text-black",
             attrs: {
-              href: "#",
-              id: "navbarDropdownMenuLink",
-              "data-toggle": "dropdown",
-              "aria-haspopup": "true",
-              "aria-expanded": "false"
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#loginModal"
             }
           },
-          [_vm._v("\n                Ingresar\n              ")]
+          [_vm._v("\n                Ingresar")]
         ),
         _vm._v(" "),
         _c(
-          "div",
+          "button",
           {
-            staticClass: "dropdown-menu text-black",
-            attrs: { "aria-labelledby": "navbarDropdownMenuLink" }
+            staticClass: "btn btn-link text-black",
+            attrs: {
+              type: "button",
+              "data-toggle": "modal",
+              "data-target": "#registerModal"
+            }
           },
-          [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-link text-black",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "modal",
-                  "data-target": "#loginModal"
-                }
-              },
-              [_vm._v("\n                Ingresar")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-link text-black",
-                attrs: {
-                  type: "button",
-                  "data-toggle": "modal",
-                  "data-target": "#registerModal"
-                }
-              },
-              [_vm._v("\n                Registrarse")]
-            )
-          ]
+          [_vm._v("\n                Registrarse")]
         )
-      ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "loginModalLabel" } },
+        [_vm._v("Iniciar Sesión")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "loginModal",
-          tabindex: "-1",
-          "aria-labelledby": "loginModalLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c("div", { staticClass: "modal-dialog modal-lg" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _c("div", { staticClass: "modal-header" }, [
-              _c(
-                "h5",
-                {
-                  staticClass: "modal-title",
-                  attrs: { id: "loginModalLabel" }
-                },
-                [_vm._v("Iniciar Sesión")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "close",
-                  attrs: {
-                    type: "button",
-                    "data-dismiss": "modal",
-                    "aria-label": "Close"
-                  }
-                },
-                [
-                  _c("span", { attrs: { "aria-hidden": "true" } }, [
-                    _vm._v("×")
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-body" }, [
-              _c("div", { staticClass: "container-fluid" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6 text-center" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded mx-auto",
-                      attrs: { src: "img/imagenmacro.png", alt: "macroferia" }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-6" }, [
-                    _c("form", [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                          _vm._v("Correo Electronico")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "email",
-                            id: "exampleInputEmail1",
-                            "aria-describedby": "emailHelp"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "small",
-                          {
-                            staticClass: "form-text text-muted",
-                            attrs: { id: "emailHelp" }
-                          },
-                          [
-                            _vm._v(
-                              "We'll never share your email with anyone else."
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group" }, [
-                        _c(
-                          "label",
-                          { attrs: { for: "exampleInputPassword1" } },
-                          [_vm._v("Contraseña")]
-                        ),
-                        _vm._v(" "),
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "password",
-                            id: "exampleInputPassword1"
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-group form-check" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", id: "exampleCheck1" }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "exampleCheck1" }
-                          },
-                          [_vm._v("Check me out")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-secondary",
-                          attrs: { type: "button", "data-dismiss": "modal" }
-                        },
-                        [_vm._v("Cancelar")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("Ingresar")]
-                      )
-                    ])
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "col-md-6 text-center" }, [
+      _c("img", {
+        staticClass: "img-fluid rounded mx-auto",
+        attrs: { src: "img/imagenmacro.png", alt: "macroferia" }
+      })
+    ])
   },
   function() {
     var _vm = this
