@@ -67,9 +67,14 @@ class RolController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->validate([
-            'name' => 'required|min:3|string',
-            'description' => 'string',
-            'module' => 'required'
+            'nombre' => 'required|min:3|string',
+            'tipo' => 'required',
+            'roles' => 'required',
+            'productos' => 'required',
+            'autorizar' => 'required',
+            'categorias' => 'required',
+            'banner' => 'required',
+            'usuarios' => 'required',
         ]);
         $input = $request->all();
         $rol = Rol::findOrFail($id);

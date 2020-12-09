@@ -3352,6 +3352,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3362,6 +3365,7 @@ __webpack_require__.r(__webpack_exports__);
       loading: false,
       roles: [],
       rol: {
+        id: '',
         nombre: '',
         tipo: '',
         roles: '',
@@ -3370,7 +3374,9 @@ __webpack_require__.r(__webpack_exports__);
         categorias: '',
         banner: '',
         usuarios: ''
-      }
+      },
+      tituloModal: '',
+      tipoAccion: 0
     };
   },
   components: {
@@ -3419,6 +3425,67 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    editRol: function editRol() {
+      var _this3 = this;
+
+      axios.put("/api/admin/roles/" + this.rol.id, this.rol, {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res) {
+          // console.log(res.data.roles);
+          _this3.roles = res.data.roles;
+          console.log(_this3.roles);
+
+          _this3.getRoles();
+
+          $('#addRolModal').modal('hide');
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    abrirModal: function abrirModal(accion) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+
+      switch (accion) {
+        case 'registrar':
+          {
+            this.tituloModal = 'Crear Rol';
+            this.tipoAccion = 1;
+            this.rol.id = '';
+            this.rol.nombre = '';
+            this.rol.tipo = '';
+            this.rol.roles = '';
+            this.rol.productos = '';
+            this.rol.autorizar = '';
+            this.rol.categorias = '';
+            this.rol.banner = '';
+            this.rol.usuarios = '';
+            $('#addRolModal').modal('show');
+            break;
+          }
+
+        case 'actualizar':
+          {
+            // console.log(data);
+            this.tituloModal = 'Editar Rol';
+            this.tipoAccion = 2;
+            this.rol.id = data['id'];
+            this.rol.nombre = data['nombre'];
+            this.rol.tipo = data['tipo'];
+            this.rol.roles = data['roles'];
+            this.rol.productos = data['productos'];
+            this.rol.autorizar = data['autorizar'];
+            this.rol.categorias = data['categorias'];
+            this.rol.banner = data['banner'];
+            this.rol.usuarios = data['usuarios'];
+            $('#addRolModal').modal('show');
+            break;
+          }
+      }
     }
   }
 });
@@ -44015,7 +44082,24 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary float-left mr-3",
+                    on: {
+                      click: function($event) {
+                        return _vm.abrirModal("registrar")
+                      }
+                    }
+                  },
+                  [_vm._v("Añadir Rol")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" })
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "row mt-2" }, [
               _c("div", { staticClass: "col-md-12" }, [
@@ -44026,7 +44110,7 @@ var render = function() {
                       "table table-striped table-hover table-responsive"
                   },
                   [
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -44095,9 +44179,26 @@ var render = function() {
                               : _vm._e()
                           ]),
                           _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(rol.created_at))]),
-                          _vm._v(" "),
-                          _vm._m(3, true)
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-warning mr-1",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.abrirModal("actualizar", rol)
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "material-icons" }, [
+                                  _vm._v("edit")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _vm._m(2, true)
+                          ])
                         ])
                       }),
                       0
@@ -44126,12 +44227,20 @@ var render = function() {
         [
           _c("div", { staticClass: "modal-dialog modal-lg" }, [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(4),
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  { staticClass: "modal-title", attrs: { id: "modalAddRol" } },
+                  [_vm._v(_vm._s(_vm.tituloModal))]
+                ),
+                _vm._v(" "),
+                _vm._m(3)
+              ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "container-fluid" }, [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(5),
+                    _vm._m(4),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("form", [
@@ -44546,20 +44655,37 @@ var render = function() {
                           [_vm._v("Cancelar")]
                         ),
                         _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            attrs: { type: "submit" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.addRol($event)
-                              }
-                            }
-                          },
-                          [_vm._v("Crear")]
-                        )
+                        _vm.tipoAccion == 1
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addRol()
+                                  }
+                                }
+                              },
+                              [_vm._v("Crear Rol")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.tipoAccion == 2
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editRol()
+                                  }
+                                }
+                              },
+                              [_vm._v("Editar Rol")]
+                            )
+                          : _vm._e()
                       ])
                     ])
                   ])
@@ -44592,25 +44718,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary float-left mr-3",
-            attrs: { "data-toggle": "modal", "data-target": "#addRolModal" }
-          },
-          [_vm._v("Añadir Rol")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
@@ -44631,8 +44738,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuarios")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Creado")]),
-        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
       ])
     ])
@@ -44641,38 +44746,26 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-warning mr-1" }, [
-        _c("span", { staticClass: "material-icons" }, [_vm._v("edit")])
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-danger" }, [
-        _c("span", { staticClass: "material-icons" }, [_vm._v("delete")])
-      ])
+    return _c("button", { staticClass: "btn btn-danger" }, [
+      _c("span", { staticClass: "material-icons" }, [_vm._v("delete")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c("h5", { staticClass: "modal-title", attrs: { id: "modalAddRol" } }, [
-        _vm._v("Crear Rol")
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
   },
   function() {
     var _vm = this

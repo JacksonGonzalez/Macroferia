@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col">
                         <!-- <h2 class="text-center">Roles</h2>  -->
-                        <button class="btn btn-primary float-left mr-3" data-toggle="modal" data-target="#addRolModal">Añadir Rol</button>
+                        <button class="btn btn-primary float-left mr-3" @click="abrirModal('registrar')">Añadir Rol</button>
                     </div>
                     <div class="col">
                     </div>
@@ -53,7 +53,7 @@
                         <th scope="col">Categorias</th>
                         <th scope="col">Banners</th>
                         <th scope="col">Usuarios</th>
-                        <th scope="col">Creado</th>
+                        <!-- <th scope="col">Creado</th> -->
                         <th scope="col">Opciones</th>
                         </tr>
                     </thead>
@@ -68,9 +68,9 @@
                         <td><p v-if="rol.categorias == 0">No</p><p v-if="rol.categorias == 1">Si</p></td>
                         <td><p v-if="rol.banner == 0">No</p><p v-if="rol.banner == 1">Si</p></td>
                         <td><p v-if="rol.usuarios == 0">No</p><p v-if="rol.usuarios == 1">Si</p></td>
-                        <td>{{rol.created_at}}</td>
+                        <!-- <td>{{rol.created_at}}</td> -->
                         <td>
-                            <button class="btn btn-warning mr-1">
+                            <button class="btn btn-warning mr-1" @click="abrirModal('actualizar',rol)">
                                 <span class="material-icons">edit</span>
                             </button>
                             <button class="btn btn-danger">
@@ -94,12 +94,12 @@
         <!-- Main Footer -->
         <footer-main></footer-main>
 
-        <!-- MODAL AÑADIR ROL -->
+        <!-- MODAL ROL -->
         <div class="modal fade" id="addRolModal" tabindex="-1" aria-labelledby="modalAddRol" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="modalAddRol">Crear Rol</h5>
+                <h5 class="modal-title" id="modalAddRol">{{ tituloModal }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -177,7 +177,9 @@
                                     </div>
 
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" @click.prevent="addRol">Crear</button>
+                                    <!-- <button type="submit" class="btn btn-primary" @click.prevent="addRol">Crear</button> -->
+                                    <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="addRol()">Crear Rol</button>
+                                    <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="editRol()">Editar Rol</button>
                                     </form>
                                 </div>
                             </div>
@@ -186,7 +188,8 @@
             </div>
             </div>
         </div>
-        <!-- FIN MODAL AÑADIR ROL -->
+        <!-- FIN MODAL ROL -->
+
         </div>
 </template>
 
@@ -202,6 +205,7 @@
                 loading: false,
                 roles: [],
                 rol: {
+                    id:'',
                     nombre: '',
                     tipo: '',
                     roles: '',
@@ -211,6 +215,8 @@
                     banner: '',
                     usuarios: ''
                 },
+                tituloModal : '',
+                tipoAccion : 0,
             }
         },
         components:{
@@ -252,6 +258,65 @@
                 .catch((err) => {
                 console.log(err);
                 });
+            },
+
+            editRol(){
+                axios.put("/api/admin/roles/"+this.rol.id, this.rol, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                .then((res) => {
+                if (res) {
+                    // console.log(res.data.roles);
+                    this.roles = res.data.roles
+                    console.log(this.roles);
+                    this.getRoles();
+                    $('#addRolModal').modal('hide');
+                }
+                })
+                .catch((err) => {
+                console.log(err);
+                });
+            },
+
+            abrirModal(accion, data = []){
+                
+                switch(accion){
+                    case 'registrar':
+                    {
+                        this.tituloModal = 'Crear Rol';
+                        this.tipoAccion = 1;
+                        this.rol.id = '';
+                        this.rol.nombre = '';
+                        this.rol.tipo = '';
+                        this.rol.roles = '';
+                        this.rol.productos = '';
+                        this.rol.autorizar = '';
+                        this.rol.categorias = '';
+                        this.rol.banner = '';
+                        this.rol.usuarios = '';
+                        
+                        $('#addRolModal').modal('show');
+                        break;
+                    }
+                    case 'actualizar':
+                    {
+                        // console.log(data);
+                        this.tituloModal = 'Editar Rol';
+                        this.tipoAccion = 2;
+                        this.rol.id = data['id'];
+                        this.rol.nombre = data['nombre'];
+                        this.rol.tipo = data['tipo'];
+                        this.rol.roles = data['roles'];
+                        this.rol.productos = data['productos'];
+                        this.rol.autorizar = data['autorizar'];
+                        this.rol.categorias = data['categorias'];
+                        this.rol.banner = data['banner'];
+                        this.rol.usuarios = data['usuarios'];
+                        
+                        $('#addRolModal').modal('show');
+                        break;
+                    }
+                }
+                    
+                
             }
         }
     }
