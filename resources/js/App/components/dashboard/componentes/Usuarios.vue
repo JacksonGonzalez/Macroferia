@@ -16,12 +16,13 @@
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Usuarios</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Usuario</a></li>
                     <li class="breadcrumb-item active">Dashboard v3</li>
                     </ol>
-                </div><!-- /.col -->
+                </div> -->
+                <!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
             </div>
@@ -33,9 +34,9 @@
                 <div class="row">
                     <div class="col">
                         <!-- <h2 class="text-center">Roles</h2>  -->
+                        <button class="btn btn-primary mr-3">Añadir Usuario</button>
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary float-right mr-3">Añadir Usuario</button>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -44,50 +45,30 @@
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">nombre</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Precio Minimo</th>
-                        <th scope="col">Precio Maximo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Pais</th>
+                        <th scope="col">Departamento</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Direccion</th>
                         <th scope="col">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>
-                            <button class="btn btn-warning mr-1">
-                                <span class="material-icons">edit</span>
-                            </button>
-                            <button class="btn btn-danger">
-                                <span class="material-icons">delete</span>
-                            </button>
-                        </td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td>
-                            <button class="btn btn-warning mr-1">
-                                <span class="material-icons">edit</span>
-                            </button>
-                            <button class="btn btn-danger">
-                                <span class="material-icons">delete</span>
-                            </button>
-                        </td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
+                        <tr v-for="(user, index) in users" :key="user.id">
+                        <th scope="row">{{ index+1 }}</th>
+                        <td>{{ user.nombre}}</td>
+                        <td>{{ user.usuario}}</td>
+                        <td>{{ user.idRol}}</td>
+                        <td>{{ user.email}}</td>
+                        <td>{{ user.telefono}}</td>
+                        <td>{{ user.pais}}</td>
+                        <td>{{ user.departamento}}</td>
+                        <td>{{ user.ciudad}}</td>
+                        <td>{{ user.direccion}}</td>
                         <td>
                             <button class="btn btn-warning mr-1">
                                 <span class="material-icons">edit</span>
@@ -124,7 +105,9 @@
         name: 'Usuarios',
         data(){
             return {
-                loading: false
+                loading: false,
+                users: [],
+                nameRol: '',
             }
         },
         components:{
@@ -133,7 +116,38 @@
             'sidebar' : Sidebar,
         },
         mounted() {
-            
+            this.getUsers();
+        },
+        methods : {
+            getUsers(){
+                axios.get("/api/admin/users", { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                .then((res) => {
+                if (res) {
+                    // console.log(res.data);
+                    this.users = res.data.users
+                    // console.log(this.users);
+                }
+                })
+                .catch((err) => {
+                console.log(err);
+                });
+            },
+
+            nombreRol(data){
+                // this.nameRol = data +' Prueba';
+                // this.idRol = $idRol;
+                axios.get("/api/admin/roles/"+data, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                .then((res) => {
+                if (res.data) {
+                    // actualizar la data
+                    // console.log(res.data.rol);
+                    this.nameRol = res.data.rol.nombre;
+                }
+                })
+                .catch((err) => {
+                console.log("Error :", err);
+                });
+            }
         }
     }
 </script>

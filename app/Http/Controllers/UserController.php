@@ -10,10 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
+   
 
     public function Autorizacion(){
         $idrol = Auth::user()->idRol;
@@ -22,9 +19,7 @@ class UserController extends Controller
 
         $permiso = $permiso['usuarios'];
 
-        if($permiso == 0){
-            return 0;
-        }
+        return $permiso;
     }
 
     public function index(Request $request)

@@ -3628,25 +3628,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3654,7 +3635,9 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Usuarios',
   data: function data() {
     return {
-      loading: false
+      loading: false,
+      users: [],
+      nameRol: ''
     };
   },
   components: {
@@ -3662,7 +3645,46 @@ __webpack_require__.r(__webpack_exports__);
     'footer-main': _Footer__WEBPACK_IMPORTED_MODULE_1__["default"],
     'sidebar': _Sidebar__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    this.getUsers();
+  },
+  methods: {
+    getUsers: function getUsers() {
+      var _this = this;
+
+      axios.get("/api/admin/users", {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res) {
+          // console.log(res.data);
+          _this.users = res.data.users; // console.log(this.users);
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    nombreRol: function nombreRol(data) {
+      var _this2 = this;
+
+      // this.nameRol = data +' Prueba';
+      // this.idRol = $idRol;
+      axios.get("/api/admin/roles/" + data, {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res.data) {
+          // actualizar la data
+          // console.log(res.data.rol);
+          _this2.nameRol = res.data.rol.nombre;
+        }
+      })["catch"](function (err) {
+        console.log("Error :", err);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -44841,7 +44863,62 @@ var render = function() {
       _vm._v(" "),
       _c("sidebar"),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "content-wrapper" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "container" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-2" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "table table-striped table-hover table-responsive"
+                  },
+                  [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.users, function(user, index) {
+                        return _c("tr", { key: user.id }, [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v(_vm._s(index + 1))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.nombre))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.usuario))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.idRol))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.email))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.telefono))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.pais))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.departamento))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.ciudad))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(user.direccion))]),
+                          _vm._v(" "),
+                          _vm._m(3, true)
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("footer-main")
     ],
@@ -44853,160 +44930,71 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-wrapper" }, [
-      _c("div", { staticClass: "content-header" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row mb-2" }, [
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Usuarios")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Usuario")])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "breadcrumb-item active" }, [
-                  _vm._v("Dashboard v3")
-                ])
-              ])
-            ])
+    return _c("div", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Usuarios")])
           ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("button", { staticClass: "btn btn-primary mr-3" }, [
+          _vm._v("Añadir Usuario")
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c(
-                "button",
-                { staticClass: "btn btn-primary float-right mr-3" },
-                [_vm._v("Añadir Usuario")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row mt-2" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-striped table-hover table-responsive"
-                },
-                [
-                  _c("thead", [
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [_vm._v("nombre")]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [
-                        _vm._v("Categoria")
-                      ]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [
-                        _vm._v("Precio Minimo")
-                      ]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [
-                        _vm._v("Precio Maximo")
-                      ]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [
-                        _vm._v("Opciones")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tbody", [
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Mark")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Otto")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@mdo")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@mdo")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("edit")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "btn btn-danger" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("delete")
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Jacob")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Thornton")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@fat")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@fat")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("edit")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "btn btn-danger" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("delete")
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Larry")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("the Bird")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@twitter")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@twitter")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("edit")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "btn btn-danger" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("delete")
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ])
+      _c("div", { staticClass: "col" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Usuario")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Rol")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Telefono")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Pais")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Departamento")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ciudad")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Direccion")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("button", { staticClass: "btn btn-warning mr-1" }, [
+        _c("span", { staticClass: "material-icons" }, [_vm._v("edit")])
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-danger" }, [
+        _c("span", { staticClass: "material-icons" }, [_vm._v("delete")])
       ])
     ])
   }
