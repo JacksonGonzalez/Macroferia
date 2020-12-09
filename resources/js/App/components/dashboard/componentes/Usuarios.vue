@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col">
                         <!-- <h2 class="text-center">Roles</h2>  -->
-                        <button class="btn btn-primary mr-3">Añadir Usuario</button>
+                        <button class="btn btn-primary mr-3" @click="abrirModal('registrar')">Añadir Usuario</button>
                     </div>
                     <div class="col">
                     </div>
@@ -70,10 +70,10 @@
                         <td>{{ user.ciudad}}</td>
                         <td>{{ user.direccion}}</td>
                         <td>
-                            <button class="btn btn-warning mr-1">
+                            <button class="btn btn-warning mr-1" @click="abrirModal('actualizar', user)">
                                 <span class="material-icons">edit</span>
                             </button>
-                            <button class="btn btn-danger">
+                            <button class="btn btn-danger" @click="deleteUser(user)">
                                 <span class="material-icons">delete</span>
                             </button>
                         </td>
@@ -93,6 +93,97 @@
 
         <!-- Main Footer -->
         <footer-main></footer-main>
+
+        <!-- MODAL USER -->
+        <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="modalUser" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalUser">{{ tituloModal }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                    <img src="img/imagenmacro.png" alt="macroferia" class="img-fluid rounded mx-auto">
+                                </div>
+                                <div class="col-md-6">
+                                    <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                        <label for="name">Nombre</label>
+                                        <input v-model="usuario.nombre" type="text" class="form-control" id="name" placeholder="Nombre" required>
+                                        </div>
+                                        <div class="form-group col-6">
+                                        <label for="name">Usuario</label>
+                                        <input v-model="usuario.usuario" type="text" class="form-control" id="usuario" placeholder="usuario" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label for="prodUser">Rol</label>
+                                            <select v-model="usuario.idRol" class="form-control" placeholder="Rol" required>
+                                                <option v-for="rol in roles" :key="rol.id" :value="rol.id">{{ rol.nombre }}</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-6">
+                                        <label for="name">Correo</label>
+                                        <input v-model="usuario.email" type="email" class="form-control" placeholder="Email@correo.com" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row" v-if="tipoAccion==1">
+                                        <div class="form-group col-6">
+                                            <label for="name">Contraseña</label>
+                                            <input v-model="usuario.password" type="password" class="form-control" placeholder="Contraseña" required>
+                                        </div>
+                                        <div class="form-group col-6">
+                                        <label for="name">Confirmar Contraseña</label>
+                                        <input v-model="usuario.c_password" type="password" class="form-control" placeholder="Confirmar Contraseña" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                        <label for="name">Telefono</label>
+                                        <input v-model="usuario.telefono" type="numeric" class="form-control" placeholder="Telefono" required>
+                                        </div>
+                                        <div class="form-group col-6">
+                                        <label for="name">Pais</label>
+                                        <input v-model="usuario.pais" type="text" class="form-control" placeholder="Pais" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                        <label for="name">Departamento</label>
+                                        <input v-model="usuario.departamento" type="text" class="form-control" placeholder="Departamento" required>
+                                        </div>
+                                        <div class="form-group col-6">
+                                        <label for="name">Ciudad</label>
+                                        <input v-model="usuario.ciudad" type="text" class="form-control" placeholder="Ciudad" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <label for="name">Direccion</label>
+                                    <input v-model="usuario.direccion" type="text" class="form-control mb-3" placeholder="Direccion" required>
+
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="addUser()">Crear Usuario</button>
+                                    <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="editUser()">Editar Usuario</button>
+                                    </form>
+                                </div>
+                            </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- FIN MODAL USER -->
+
         </div>
 </template>
 
@@ -107,7 +198,23 @@
             return {
                 loading: false,
                 users: [],
+                roles: [],
                 nameRol: '',
+                usuario: {
+                    id:'',
+                    nombre: '',
+                    usuario: '',
+                    idRol: '',
+                    email: '',
+                    password: '',
+                    c_password: '',
+                    telefono: '',
+                    pais: '',
+                    ciudad: '',
+                    direccion: '',
+                },
+                tituloModal : '',
+                tipoAccion : 0,
             }
         },
         components:{
@@ -147,6 +254,91 @@
                 .catch((err) => {
                 console.log("Error :", err);
                 });
+            },
+
+            addUser(){
+
+            },
+
+            editUser(){
+
+            },
+
+            deleteUser(data){
+                let opcion = confirm("Desea eliminar el Usuario "+data['nombre']);
+                if (opcion == true) {
+                    axios.delete("/api/admin/users/"+data['id'], { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                    .then((res) => {
+                    if (res) {
+        
+                        this.getUsers();
+                        alert('Usuario Eliminado Correctamente');
+                    }
+                    })
+                    .catch((err) => {
+                    console.log(err);
+                    });
+                }
+            },
+
+            getRoles: function() {
+            // console.log(this.$store.state.token);
+                axios.get("/api/admin/roles/", { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                    .then((res) => {
+                    if (res) {
+                        // console.log(res.data.roles);
+                        this.roles = res.data.roles
+                        // console.log(this.roles);
+                    }
+                    })
+                    .catch((err) => {
+                    console.log(err);
+                    });
+            },
+
+            abrirModal(accion, data = []){
+                this.getRoles();
+                switch(accion){
+                    case 'registrar':
+                    {
+                        this.tituloModal = 'Crear Usuario';
+                        this.tipoAccion = 1;
+                        this.usuario.id = '';
+                        this.usuario.nombre = '';
+                        this.usuario.usuario = '';
+                        this.usuario.idRol = '';
+                        this.usuario.password = '';
+                        this.usuario.telefono = '';
+                        this.usuario.pais = '';
+                        this.usuario.departamento = '';
+                        this.usuario.ciudad = '';
+                        this.usuario.direccion = '';
+                        
+                        $('#userModal').modal('show');
+                        break;
+                    }
+                    case 'actualizar':
+                    {
+                        // console.log(data);
+                        this.tituloModal = 'Editar Usuario';
+                        this.tipoAccion = 2;
+                        this.usuario.id = data['id'];;
+                        this.usuario.nombre = data['nombre'];;
+                        this.usuario.usuario = data['usuario'];;
+                        this.usuario.idRol = data['idRol'];;
+                        this.usuario.password = data['password'];;
+                        this.usuario.telefono = data['telefono'];;
+                        this.usuario.pais = data['pais'];;
+                        this.usuario.departamento = data['departamento'];;
+                        this.usuario.ciudad = data['ciudad'];;
+                        this.usuario.direccion = data['direccion'];;
+                        
+                        $('#userModal').modal('show');
+                        break;
+                    }
+                }
+                    
+                
             }
         }
     }
