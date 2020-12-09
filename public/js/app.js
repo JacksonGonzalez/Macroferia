@@ -3791,10 +3791,28 @@ __webpack_require__.r(__webpack_exports__);
         console.log("Error :", err);
       });
     },
-    addUser: function addUser() {},
+    addUser: function addUser() {
+      var _this3 = this;
+
+      axios.post("/api/admin/users", this.usuario, {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res) {
+          // console.log(res.data.user);
+          _this3.getUsers();
+
+          $('#userModal').modal('hide');
+          alert('Usuario Creado Exitosamente');
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
     editUser: function editUser() {},
     deleteUser: function deleteUser(data) {
-      var _this3 = this;
+      var _this4 = this;
 
       var opcion = confirm("Desea eliminar el Usuario " + data['nombre']);
 
@@ -3805,7 +3823,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         }).then(function (res) {
           if (res) {
-            _this3.getUsers();
+            _this4.getUsers();
 
             alert('Usuario Eliminado Correctamente');
           }
@@ -3815,7 +3833,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getRoles: function getRoles() {
-      var _this4 = this;
+      var _this5 = this;
 
       // console.log(this.$store.state.token);
       axios.get("/api/admin/roles/", {
@@ -3825,7 +3843,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         if (res) {
           // console.log(res.data.roles);
-          _this4.roles = res.data.roles; // console.log(this.roles);
+          _this5.roles = res.data.roles; // console.log(this.roles);
         }
       })["catch"](function (err) {
         console.log(err);

@@ -257,7 +257,18 @@
             },
 
             addUser(){
-
+                axios.post("/api/admin/users", this.usuario, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                .then((res) => {
+                if (res) {
+                    // console.log(res.data.user);
+                    this.getUsers();
+                    $('#userModal').modal('hide');
+                    alert('Usuario Creado Exitosamente');
+                }
+                })
+                .catch((err) => {
+                console.log(err);
+                });
             },
 
             editUser(){

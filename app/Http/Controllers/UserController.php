@@ -44,7 +44,7 @@ class UserController extends Controller
         $validator = $request->validate([ 
             'nombre' => 'required|string|min:3', 
             'usuario' => 'required|String|min:3',
-            'idRol' => 'required|String',
+            'idRol' => 'required|Numeric',
             'email' => 'required|email|unique:users', 
             'password' => 'required', 
             'c_password' => 'required|same:password',
