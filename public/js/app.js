@@ -2948,37 +2948,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2986,7 +2955,8 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Categorias',
   data: function data() {
     return {
-      loading: false
+      loading: false,
+      categorias: []
     };
   },
   components: {
@@ -2994,7 +2964,71 @@ __webpack_require__.r(__webpack_exports__);
     'footer-main': _Footer__WEBPACK_IMPORTED_MODULE_1__["default"],
     'sidebar': _Sidebar__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    this.getCategories();
+  },
+  methods: {
+    getCategories: function getCategories() {
+      var _this = this;
+
+      axios.get("/api/admin/categories", {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res) {
+          // console.log(res.data);
+          _this.categorias = res.data.categorias; // console.log(this.categorias);
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    abrirModal: function abrirModal(accion) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      this.getRoles();
+
+      switch (accion) {
+        case 'registrar':
+          {
+            this.tituloModal = 'Crear Categoria';
+            this.tipoAccion = 1;
+            this.usuario.id = '';
+            this.usuario.nombre = '';
+            this.usuario.usuario = '';
+            this.usuario.idRol = '';
+            this.usuario.password = '';
+            this.usuario.telefono = '';
+            this.usuario.pais = '';
+            this.usuario.departamento = '';
+            this.usuario.ciudad = '';
+            this.usuario.direccion = '';
+            $('#categoryModal').modal('show');
+            break;
+          }
+
+        case 'actualizar':
+          {
+            // console.log(data);
+            this.tituloModal = 'Editar Categoria';
+            this.tipoAccion = 2;
+            this.usuario.id = data['id'];
+            this.usuario.nombre = data['nombre'];
+            this.usuario.usuario = data['usuario'];
+            this.usuario.idRol = data['idRol'];
+            this.usuario.email = data['email'];
+            this.usuario.password = data['password'];
+            this.usuario.telefono = data['telefono'];
+            this.usuario.pais = data['pais'];
+            this.usuario.departamento = data['departamento'];
+            this.usuario.ciudad = data['ciudad'];
+            this.usuario.direccion = data['direccion'];
+            $('#categoryModal').modal('show');
+            break;
+          }
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -43953,7 +43987,55 @@ var render = function() {
       _vm._v(" "),
       _c("sidebar"),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "content-wrapper" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "container" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mt-2" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c(
+                  "table",
+                  {
+                    staticClass:
+                      "table table-striped table-hover table-responsive"
+                  },
+                  [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _c(
+                      "tbody",
+                      _vm._l(_vm.categorias, function(cat, index) {
+                        return _c("tr", { key: cat.id }, [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v(_vm._s(index + 1))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(cat.nombre))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("img", {
+                              staticClass: "img-fluid rounded",
+                              attrs: { src: cat.imagen, alt: "cat.nombre" }
+                            })
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(cat.updated_at))]),
+                          _vm._v(" "),
+                          _vm._m(3, true)
+                        ])
+                      }),
+                      0
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("footer-main")
     ],
@@ -43965,160 +44047,59 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-wrapper" }, [
-      _c("div", { staticClass: "content-header" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row mb-2" }, [
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Categorias")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Categoria")])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "breadcrumb-item active" }, [
-                  _vm._v("Dashboard v3")
-                ])
-              ])
-            ])
+    return _c("div", { staticClass: "content-header" }, [
+      _c("div", { staticClass: "container-fluid" }, [
+        _c("div", { staticClass: "row mb-2" }, [
+          _c("div", { staticClass: "col-sm-6" }, [
+            _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Categorias")])
           ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("button", { staticClass: "btn btn-primary mr-3" }, [
+          _vm._v("Añadir Categoria")
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "col" }, [
-              _c(
-                "button",
-                { staticClass: "btn btn-primary float-right mr-3" },
-                [_vm._v("Añadir Categoria")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row mt-2" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-striped table-hover table-responsive"
-                },
-                [
-                  _c("thead", [
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [_vm._v("nombre")]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [
-                        _vm._v("Categoria")
-                      ]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [
-                        _vm._v("Precio Minimo")
-                      ]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [
-                        _vm._v("Precio Maximo")
-                      ]),
-                      _vm._v(" "),
-                      _c("th", { attrs: { scope: "col" } }, [
-                        _vm._v("Opciones")
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("tbody", [
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Mark")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Otto")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@mdo")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@mdo")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("edit")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "btn btn-danger" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("delete")
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [_vm._v("2")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Jacob")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Thornton")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@fat")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@fat")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("edit")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "btn btn-danger" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("delete")
-                          ])
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("tr", [
-                      _c("th", { attrs: { scope: "row" } }, [_vm._v("3")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("Larry")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("the Bird")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@twitter")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v("@twitter")]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c("button", { staticClass: "btn btn-warning mr-1" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("edit")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("button", { staticClass: "btn btn-danger" }, [
-                          _c("span", { staticClass: "material-icons" }, [
-                            _vm._v("delete")
-                          ])
-                        ])
-                      ])
-                    ])
-                  ])
-                ]
-              )
-            ])
-          ])
-        ])
+      _c("div", { staticClass: "col" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("nombre")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Actualizado")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("button", { staticClass: "btn btn-warning mr-1" }, [
+        _c("span", { staticClass: "material-icons" }, [_vm._v("edit")])
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "btn btn-danger" }, [
+        _c("span", { staticClass: "material-icons" }, [_vm._v("delete")])
       ])
     ])
   }
