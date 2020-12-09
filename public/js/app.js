@@ -3415,12 +3415,12 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         if (res) {
           // console.log(res.data.roles);
-          _this2.roles = res.data.roles;
-          console.log(_this2.roles);
+          _this2.roles = res.data.roles; // console.log(this.roles);
 
           _this2.getRoles();
 
           $('#addRolModal').modal('hide');
+          alert('Rol Creado Exitosamente');
         }
       })["catch"](function (err) {
         console.log(err);
@@ -3436,16 +3436,42 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         if (res) {
           // console.log(res.data.roles);
-          _this3.roles = res.data.roles;
-          console.log(_this3.roles);
+          _this3.roles = res.data.roles; // console.log(this.roles);
 
           _this3.getRoles();
 
           $('#addRolModal').modal('hide');
+          alert('Rol Editado Correctamente');
         }
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    deleteRol: function deleteRol(data) {
+      var _this4 = this;
+
+      // console.log(data);
+      var opcion = confirm("Desea eliminar el Rol " + data['nombre']);
+
+      if (opcion == true) {
+        axios["delete"]("/api/admin/roles/" + data['id'], {
+          headers: {
+            Authorization: "Bearer " + this.$store.state.token
+          }
+        }).then(function (res) {
+          if (res) {
+            // console.log(res.data.roles);
+            _this4.roles = res.data.roles; // console.log(this.roles);
+
+            _this4.getRoles(); // $('#addRolModal').modal('hide');
+
+
+            alert('Rol Eliminado Correctamente');
+          }
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
     },
     abrirModal: function abrirModal(accion) {
       var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
@@ -44197,7 +44223,22 @@ var render = function() {
                               ]
                             ),
                             _vm._v(" "),
-                            _vm._m(2, true)
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteRol(rol)
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "material-icons" }, [
+                                  _vm._v("delete")
+                                ])
+                              ]
+                            )
                           ])
                         ])
                       }),
@@ -44234,13 +44275,13 @@ var render = function() {
                   [_vm._v(_vm._s(_vm.tituloModal))]
                 ),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(2)
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "container-fluid" }, [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(4),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("form", [
@@ -44740,14 +44781,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("button", { staticClass: "btn btn-danger" }, [
-      _c("span", { staticClass: "material-icons" }, [_vm._v("delete")])
     ])
   },
   function() {

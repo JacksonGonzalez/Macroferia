@@ -73,7 +73,7 @@
                             <button class="btn btn-warning mr-1" @click="abrirModal('actualizar',rol)">
                                 <span class="material-icons">edit</span>
                             </button>
-                            <button class="btn btn-danger">
+                            <button class="btn btn-danger" @click="deleteRol(rol)">
                                 <span class="material-icons">delete</span>
                             </button>
                         </td>
@@ -250,9 +250,10 @@
                 if (res) {
                     // console.log(res.data.roles);
                     this.roles = res.data.roles
-                    console.log(this.roles);
+                    // console.log(this.roles);
                     this.getRoles();
                     $('#addRolModal').modal('hide');
+                    alert('Rol Creado Exitosamente');
                 }
                 })
                 .catch((err) => {
@@ -266,14 +267,36 @@
                 if (res) {
                     // console.log(res.data.roles);
                     this.roles = res.data.roles
-                    console.log(this.roles);
+                    // console.log(this.roles);
                     this.getRoles();
                     $('#addRolModal').modal('hide');
+                    alert('Rol Editado Correctamente');
                 }
                 })
                 .catch((err) => {
                 console.log(err);
                 });
+            },
+
+            deleteRol(data){
+                // console.log(data);
+                let opcion = confirm("Desea eliminar el Rol "+data['nombre']);
+                if (opcion == true) {
+                    axios.delete("/api/admin/roles/"+data['id'], { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                    .then((res) => {
+                    if (res) {
+                        // console.log(res.data.roles);
+                        this.roles = res.data.roles
+                        // console.log(this.roles);
+                        this.getRoles();
+                        // $('#addRolModal').modal('hide');
+                        alert('Rol Eliminado Correctamente');
+                    }
+                    })
+                    .catch((err) => {
+                    console.log(err);
+                    });
+                }
             },
 
             abrirModal(accion, data = []){
