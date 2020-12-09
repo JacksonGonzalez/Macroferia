@@ -3810,9 +3810,26 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    editUser: function editUser() {},
-    deleteUser: function deleteUser(data) {
+    editUser: function editUser() {
       var _this4 = this;
+
+      axios.put("/api/admin/users/" + this.usuario.id, this.usuario, {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res) {
+          _this4.getUsers();
+
+          $('#userModal').modal('hide');
+          alert('Usuario Editado Correctamente');
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    deleteUser: function deleteUser(data) {
+      var _this5 = this;
 
       var opcion = confirm("Desea eliminar el Usuario " + data['nombre']);
 
@@ -3823,7 +3840,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         }).then(function (res) {
           if (res) {
-            _this4.getUsers();
+            _this5.getUsers();
 
             alert('Usuario Eliminado Correctamente');
           }
@@ -3833,7 +3850,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     getRoles: function getRoles() {
-      var _this5 = this;
+      var _this6 = this;
 
       // console.log(this.$store.state.token);
       axios.get("/api/admin/roles/", {
@@ -3843,7 +3860,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (res) {
         if (res) {
           // console.log(res.data.roles);
-          _this5.roles = res.data.roles; // console.log(this.roles);
+          _this6.roles = res.data.roles; // console.log(this.roles);
         }
       })["catch"](function (err) {
         console.log(err);
@@ -3878,25 +3895,16 @@ __webpack_require__.r(__webpack_exports__);
             this.tituloModal = 'Editar Usuario';
             this.tipoAccion = 2;
             this.usuario.id = data['id'];
-            ;
             this.usuario.nombre = data['nombre'];
-            ;
             this.usuario.usuario = data['usuario'];
-            ;
             this.usuario.idRol = data['idRol'];
-            ;
+            this.usuario.email = data['email'];
             this.usuario.password = data['password'];
-            ;
             this.usuario.telefono = data['telefono'];
-            ;
             this.usuario.pais = data['pais'];
-            ;
             this.usuario.departamento = data['departamento'];
-            ;
             this.usuario.ciudad = data['ciudad'];
-            ;
             this.usuario.direccion = data['direccion'];
-            ;
             $('#userModal').modal('show');
             break;
           }

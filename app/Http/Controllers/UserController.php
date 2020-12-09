@@ -26,9 +26,9 @@ class UserController extends Controller
     {
         if($request->has('txtBuscar')){
             $users = User::WHERE('name', 'like', '%'.$request->txtBuscar.'%')
-                    ->orWhere('document_number', 'like', '%'.$request->txtBuscar.'%')->get();
+                    ->orWhere('document_number', 'like', '%'.$request->txtBuscar.'%')->orderBy('id', 'desc')->get();
         }else{
-            $users = User::all();
+            $users = User::orderBy('id', 'desc')->get();
         }
 
         if($this->Autorizacion() == 0){
@@ -73,16 +73,15 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $validator = $request->validate([ 
-            'name' => 'required|string|min:3', 
-            'last_name' => 'required|String|min:3',
-            'email' => 'required|email', 
-            'idRol' => 'required|String',
-            'document_type' => 'required|String|max:3',
-            'document_number' => 'required|Numeric|min:7',
-            'address' => 'String',
-            'phone' => 'Numeric',
-            'email' => 'required|string',
-            'avatar' => 'String',
+            'nombre' => 'required|string|min:3', 
+            'usuario' => 'required|String|min:3',
+            'idRol' => 'required|Numeric',
+            'email' => 'required|email|unique:users,email,'.$request->id,
+            'telefono' => 'required|Numeric',
+            'pais' => 'required|String',
+            'departamento' => 'required|String',
+            'ciudad' => 'required|String',
+            'direccion' => 'String',
             ]);
     
     

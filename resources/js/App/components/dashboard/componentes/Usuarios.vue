@@ -272,7 +272,17 @@
             },
 
             editUser(){
-
+                axios.put("/api/admin/users/"+this.usuario.id, this.usuario, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                .then((res) => {
+                if (res) {
+                    this.getUsers();
+                    $('#userModal').modal('hide');
+                    alert('Usuario Editado Correctamente');
+                }
+                })
+                .catch((err) => {
+                console.log(err);
+                });
             },
 
             deleteUser(data){
@@ -333,16 +343,17 @@
                         // console.log(data);
                         this.tituloModal = 'Editar Usuario';
                         this.tipoAccion = 2;
-                        this.usuario.id = data['id'];;
-                        this.usuario.nombre = data['nombre'];;
-                        this.usuario.usuario = data['usuario'];;
-                        this.usuario.idRol = data['idRol'];;
-                        this.usuario.password = data['password'];;
-                        this.usuario.telefono = data['telefono'];;
-                        this.usuario.pais = data['pais'];;
-                        this.usuario.departamento = data['departamento'];;
-                        this.usuario.ciudad = data['ciudad'];;
-                        this.usuario.direccion = data['direccion'];;
+                        this.usuario.id = data['id'];
+                        this.usuario.nombre = data['nombre'];
+                        this.usuario.usuario = data['usuario'];
+                        this.usuario.idRol = data['idRol'];
+                        this.usuario.email = data['email'];
+                        this.usuario.password = data['password'];
+                        this.usuario.telefono = data['telefono'];
+                        this.usuario.pais = data['pais'];
+                        this.usuario.departamento = data['departamento'];
+                        this.usuario.ciudad = data['ciudad'];
+                        this.usuario.direccion = data['direccion'];
                         
                         $('#userModal').modal('show');
                         break;
