@@ -34,6 +34,13 @@ class CategoryController extends Controller
         }
     }
 
+
+    public function categorias()
+    {
+            $categorias = Category::orderBy('id', 'desc')->get();
+            return response()->json(['res' => true, 'categorias' => $categorias], 200);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

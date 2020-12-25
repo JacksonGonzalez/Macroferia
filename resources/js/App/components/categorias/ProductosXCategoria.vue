@@ -187,8 +187,9 @@
             this.ruta = this.$route.params.id;
             if(this.ruta != this.$route.params.id || this.ruta == 0){
                 this.ruta = this.$route.params.id;
-            }else{
             }
+
+            $('body, html').animate({scrollTop: '0px'}, 300);
         },
         methods:{
             mostrarModal(){

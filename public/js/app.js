@@ -2120,7 +2120,11 @@ __webpack_require__.r(__webpack_exports__);
 
     if (this.ruta != this.$route.params.id || this.ruta == 0) {
       this.ruta = this.$route.params.id;
-    } else {}
+    }
+
+    $('body, html').animate({
+      scrollTop: '0px'
+    }, 300);
   },
   methods: {
     mostrarModal: function mostrarModal() {
@@ -4103,25 +4107,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Categorias',
   data: function data() {
     return {
-      loading: false
+      loading: false,
+      categorias: []
     };
   },
   components: {},
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    this.getCategories();
+  },
+  methods: {
+    getCategories: function getCategories() {
+      var _this = this;
+
+      axios.get("/api/categories").then(function (res) {
+        if (res) {
+          // console.log(res.data);
+          _this.categorias = res.data.categorias; // console.log(this.categorias);
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -46129,80 +46140,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h2", { attrs: { align: "center" } }, [_vm._v("Categorias")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "row row-cols-1 row-cols-md-4 mr-3 ml-3" },
+      _vm._l(_vm.categorias, function(cat) {
+        return _c(
+          "router-link",
+          { key: cat.id, attrs: { to: /productosxcategoria/ + cat.id } },
+          [
+            _c("figure", { staticClass: "figure mx-1" }, [
+              _c("img", {
+                staticClass: "figure-img img-fluid rounded",
+                attrs: { src: "img/categorias/" + cat.imagen, alt: "..." }
+              }),
+              _vm._v(" "),
+              _c("figcaption", { staticClass: "figure-caption" }, [
+                _vm._v(_vm._s(cat.nombre))
+              ])
+            ])
+          ]
+        )
+      }),
+      1
+    )
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("h2", { attrs: { align: "center" } }, [_vm._v("Categorias")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row row-cols-1 row-cols-md-4 mr-3 ml-3" }, [
-        _c("figure", { staticClass: "figure" }, [
-          _c("img", {
-            staticClass: "figure-img img-fluid rounded",
-            attrs: {
-              src:
-                "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-              alt: "..."
-            }
-          }),
-          _vm._v(" "),
-          _c("figcaption", { staticClass: "figure-caption" }, [
-            _vm._v("A caption for the above image.")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("figure", { staticClass: "figure" }, [
-          _c("img", {
-            staticClass: "figure-img img-fluid rounded",
-            attrs: {
-              src:
-                "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-              alt: "..."
-            }
-          }),
-          _vm._v(" "),
-          _c("figcaption", { staticClass: "figure-caption" }, [
-            _vm._v("A caption for the above image.")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("figure", { staticClass: "figure" }, [
-          _c("img", {
-            staticClass: "figure-img img-fluid rounded",
-            attrs: {
-              src:
-                "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-              alt: "..."
-            }
-          }),
-          _vm._v(" "),
-          _c("figcaption", { staticClass: "figure-caption" }, [
-            _vm._v("A caption for the above image.")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("figure", { staticClass: "figure" }, [
-          _c("img", {
-            staticClass: "figure-img img-fluid rounded",
-            attrs: {
-              src:
-                "https://www.forotransporteprofesional.es/wp-content/uploads/2014/11/Cuadro-Negro-300x225.png",
-              alt: "..."
-            }
-          }),
-          _vm._v(" "),
-          _c("figcaption", { staticClass: "figure-caption" }, [
-            _vm._v("A caption for the above image.")
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

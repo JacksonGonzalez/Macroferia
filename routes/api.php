@@ -26,11 +26,11 @@ Route::group([// 'middleware' => 'api', // 'prefix' => 'auth',
     Route::post('register', 'AuthController@register');
     // Route::post('refresh', 'AuthController@refresh');
     Route::post('checkToken', 'AuthController@checkToken');
-    // Route::post('admin', 'AdminController@index');
     // Route::post('register', 'UserController@store');
-
+    
     
 });
+Route::get('categories', 'CategoryController@categorias');
 
 Route::group([// 
     'middleware' => 'auth:api',
