@@ -61,8 +61,9 @@
                     Categorias
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a v-for="(item, index) in categoriasArray" :key="index"  
-                    class="dropdown-item" :href="/productosxcategoria/+item" >Categoria {{item}}</a>
+                    <!-- <a v-for="item in categorias" :key="item.id"  
+                    class="dropdown-item" :href="/productosxcategoria/+item" > {{item.nombre}}</a> -->
+                    <router-link class="dropdown-item" v-for="cat in categorias" :key="cat.id" :to="/productosxcategoria/+cat.id" v-text="cat.nombre"></router-link>
                   </div>
                 </li>
                 
@@ -257,7 +258,7 @@ export default {
   data() {
     return {
       autenticado: '',
-      categoriasArray : [1, 2],
+      categorias: [],
       credentials: {
         email: "",
         password: "",
@@ -283,6 +284,8 @@ export default {
   },
   components: {},
   mounted() {
+      this.getCategories();
+
         if (this.$store.state.token != "") {
       axios.post("/api/checkToken", "",{ headers:{ Authorization: "Bearer "+this.$store.state.token }})
         .then((res) => {
@@ -306,6 +309,20 @@ export default {
     
   },
   methods: {
+    getCategories(){
+        axios.get("/api/categories")
+        .then((res) => {
+        if (res) {
+            // console.log(res.data);
+            this.categorias = res.data.categorias
+            // console.log(this.categorias);
+        }
+        })
+        .catch((err) => {
+        console.log(err);
+        });
+    },
+
     validartipo($idRol){
         // alert($idRol);
         this.idRol = $idRol;

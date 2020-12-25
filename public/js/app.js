@@ -5112,12 +5112,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Header",
   data: function data() {
     return {
       autenticado: '',
-      categoriasArray: [1, 2],
+      categorias: [],
       credentials: {
         email: "",
         password: ""
@@ -5145,6 +5146,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    this.getCategories();
+
     if (this.$store.state.token != "") {
       axios.post("/api/checkToken", "", {
         headers: {
@@ -5169,8 +5172,20 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    validartipo: function validartipo($idRol) {
+    getCategories: function getCategories() {
       var _this2 = this;
+
+      axios.get("/api/categories").then(function (res) {
+        if (res) {
+          // console.log(res.data);
+          _this2.categorias = res.data.categorias; // console.log(this.categorias);
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    validartipo: function validartipo($idRol) {
+      var _this3 = this;
 
       // alert($idRol);
       this.idRol = $idRol;
@@ -5182,39 +5197,39 @@ __webpack_require__.r(__webpack_exports__);
         if (res.data) {
           // actualizar la data
           // console.log(res.data.rol);
-          _this2.tipoRol = res.data.rol.tipo;
+          _this3.tipoRol = res.data.rol.tipo;
         }
       })["catch"](function (err) {
         console.log("Error :", err);
       });
     },
     login: function login() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.post("/api/login", this.credentials).then(function (res) {
         if (res.data.success) {
           // actualizar la data
           // console.log(res.data);
-          _this3.$store.commit("setToken", res.data.success.token);
+          _this4.$store.commit("setToken", res.data.success.token);
 
-          _this3.usuario = res.data.user.usuario; // console.log(res.data.success.token);
+          _this4.usuario = res.data.user.usuario; // console.log(res.data.success.token);
 
-          _this3.validartipo(res.data.user.idRol);
+          _this4.validartipo(res.data.user.idRol);
 
-          _this3.autenticado = true;
-          _this3.errorLogin = false;
+          _this4.autenticado = true;
+          _this4.errorLogin = false;
 
-          _this3.$router.push('/');
+          _this4.$router.push('/');
 
           $('#loginModal').modal('hide');
         }
       })["catch"](function (err) {
-        _this3.errorLogin = true;
+        _this4.errorLogin = true;
         console.log("Error :", err);
       }); // this.errorLogin = true;
     },
     logout: function logout() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.post('/api/logout', "", {
         headers: {
@@ -5222,35 +5237,35 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (res) {
         if (res) {
-          _this4.autenticado = false;
+          _this5.autenticado = false;
 
-          _this4.$store.commit("clearToken");
+          _this5.$store.commit("clearToken");
 
-          _this4.tipoRol = 3;
+          _this5.tipoRol = 3;
 
-          _this4.$router.push("/");
+          _this5.$router.push("/");
         }
       })["catch"](function (err) {
         console.log(err);
       });
     },
     registrarse: function registrarse() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios.post("/api/register", this.registers).then(function (res) {
         if (res.data.success) {
           // actualizar la data
           // console.log(res.data);
-          _this5.$store.commit("setToken", res.data.success.token); // console.log(res.data);
+          _this6.$store.commit("setToken", res.data.success.token); // console.log(res.data);
 
 
-          _this5.usuario = res.data.user.usuario;
+          _this6.usuario = res.data.user.usuario;
 
-          _this5.validartipo(res.data.user.idRol);
+          _this6.validartipo(res.data.user.idRol);
 
-          _this5.autenticado = true; // this.errorLogin = false;
+          _this6.autenticado = true; // this.errorLogin = false;
 
-          _this5.$router.push('/');
+          _this6.$router.push('/');
 
           $('#registerModal').modal('hide');
         }
@@ -47821,18 +47836,15 @@ var render = function() {
                         staticClass: "dropdown-menu",
                         attrs: { "aria-labelledby": "navbarDropdownMenuLink" }
                       },
-                      _vm._l(_vm.categoriasArray, function(item, index) {
-                        return _c(
-                          "a",
-                          {
-                            key: index,
-                            staticClass: "dropdown-item",
-                            attrs: { href: /productosxcategoria/ + item }
-                          },
-                          [_vm._v("Categoria " + _vm._s(item))]
-                        )
+                      _vm._l(_vm.categorias, function(cat) {
+                        return _c("router-link", {
+                          key: cat.id,
+                          staticClass: "dropdown-item",
+                          attrs: { to: /productosxcategoria/ + cat.id },
+                          domProps: { textContent: _vm._s(cat.nombre) }
+                        })
                       }),
-                      0
+                      1
                     )
                   ]),
                   _vm._v(" "),
