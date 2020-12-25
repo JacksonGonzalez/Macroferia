@@ -45,54 +45,22 @@
                         <tr>
                         <th scope="col">#</th>
                         <th scope="col">nombre</th>
-                        <th scope="col">Categoria</th>
-                        <th scope="col">Precio Minimo</th>
-                        <th scope="col">Precio Maximo</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Url</th>
                         <th scope="col">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                        <tr v-for="(ban, index) in banners" :key="ban.id">
+                        <th scope="row">{{index+1}}</th>
+                        <td>{{ ban.nombre }}</td>
+                        <td> <img class="img-fluid" style="height:50%;" :src="'img/banners/'+ban.imagen" :alt="ban.nombre"></td>
+                        <td>{{ ban.url}}</td>
                         <td>
-                            <button class="btn btn-warning mr-1">
+                            <!-- <button class="btn btn-warning mr-1"  @click="abrirModal('actualizar', cat)">
                                 <span class="material-icons">edit</span>
-                            </button>
-                            <button class="btn btn-danger">
-                                <span class="material-icons">delete</span>
-                            </button>
-                        </td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        <td>
-                            <button class="btn btn-warning mr-1">
-                                <span class="material-icons">edit</span>
-                            </button>
-                            <button class="btn btn-danger">
-                                <span class="material-icons">delete</span>
-                            </button>
-                        </td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>
-                            <button class="btn btn-warning mr-1">
-                                <span class="material-icons">edit</span>
-                            </button>
-                            <button class="btn btn-danger">
+                            </button> -->
+                            <button class="btn btn-danger" @click="deleteBanner(ban)">
                                 <span class="material-icons">delete</span>
                             </button>
                         </td>
@@ -124,7 +92,8 @@
         name: 'Banner',
         data(){
             return {
-                loading: false
+                loading: false,
+                banners : [],
             }
         },
         components:{
@@ -133,8 +102,23 @@
             'sidebar' : Sidebar,
         },
         mounted() {
-            
-        }
+            this.getBanners();
+        },
+        methods: {
+            getBanners(){
+                axios.get("/api/admin/banners", { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                    .then((res) => {
+                    if (res) {
+                        // console.log(res.data.banners);
+                        this.banners = res.data.banners
+                        // console.log(this.banners);
+                    }
+                    })
+                    .catch((err) => {
+                    console.log(err);
+                    });
+            }
+        },
     }
 </script>
 
