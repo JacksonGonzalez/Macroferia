@@ -2995,48 +2995,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3100,10 +3058,59 @@ __webpack_require__.r(__webpack_exports__);
 
           $('#categoryModal').modal('hide');
           alert('Categoria Creado Exitosamente');
+          _this2.imagenMiniatura = '';
         }
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    editCategory: function editCategory() {
+      var _this3 = this;
+
+      var formDataEdit = new FormData();
+      formDataEdit.append('nombre', this.categoria.nombre);
+      formDataEdit.append('imagen', this.categoria.imagen);
+      var id = this.categoria.id; // if(typeof this.categoria.imagen === 'string'){
+      //     formDataEdit = this.categoria;
+      // }
+      // console.log(formDataEdit);
+
+      axios.put("/api/admin/categories/" + this.categoria.id, formDataEdit, {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token,
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (res) {
+        if (res) {
+          _this3.getCategories();
+
+          $('#categoryModal').modal('hide');
+          alert('Categoria Editada Exitosamente');
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    deleteCategory: function deleteCategory(data) {
+      var _this4 = this;
+
+      var opcion = confirm("Desea eliminar la categoria " + data['nombre']);
+
+      if (opcion == true) {
+        axios["delete"]("/api/admin/categories/" + data['id'], {
+          headers: {
+            Authorization: "Bearer " + this.$store.state.token
+          }
+        }).then(function (res) {
+          if (res) {
+            _this4.getCategories();
+
+            alert('Categoria Eliminada Correctamente');
+          }
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
     },
     obtenerImagen: function obtenerImagen(e) {
       var file = e.target.files[0];
@@ -3112,12 +3119,12 @@ __webpack_require__.r(__webpack_exports__);
       this.cargarImagen(file);
     },
     cargarImagen: function cargarImagen(file) {
-      var _this3 = this;
+      var _this5 = this;
 
       var reader = new FileReader();
 
       reader.onload = function (e) {
-        _this3.imagenMiniatura = e.target.result;
+        _this5.imagenMiniatura = e.target.result;
       };
 
       reader.readAsDataURL(file);
@@ -3141,18 +3148,11 @@ __webpack_require__.r(__webpack_exports__);
           {
             // console.log(data);
             this.tituloModal = 'Editar Categoria';
-            this.tipoAccion = 2; // this.usuario.id = data['id'];
-            // this.usuario.nombre = data['nombre'];
-            // this.usuario.usuario = data['usuario'];
-            // this.usuario.idRol = data['idRol'];
-            // this.usuario.email = data['email'];
-            // this.usuario.password = data['password'];
-            // this.usuario.telefono = data['telefono'];
-            // this.usuario.pais = data['pais'];
-            // this.usuario.departamento = data['departamento'];
-            // this.usuario.ciudad = data['ciudad'];
-            // this.usuario.direccion = data['direccion'];
-
+            this.tipoAccion = 2;
+            this.categoria.id = data['id'];
+            this.categoria.nombre = data['nombre'];
+            this.categoria.imagen = data['imagen'];
+            this.imagenMiniatura = 'img/categorias/' + this.categoria.imagen;
             $('#categoryModal').modal('show');
             break;
           }
@@ -44175,7 +44175,41 @@ var render = function() {
                           _vm._v(" "),
                           _c("td", [_vm._v(_vm._s(cat.updated_at))]),
                           _vm._v(" "),
-                          _vm._m(2, true)
+                          _c("td", [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-warning mr-1",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.abrirModal("actualizar", cat)
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "material-icons" }, [
+                                  _vm._v("edit")
+                                ])
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteCategory(cat)
+                                  }
+                                }
+                              },
+                              [
+                                _c("span", { staticClass: "material-icons" }, [
+                                  _vm._v("delete")
+                                ])
+                              ]
+                            )
+                          ])
                         ])
                       }),
                       0
@@ -44214,13 +44248,13 @@ var render = function() {
                   [_vm._v(_vm._s(_vm.tituloModal))]
                 ),
                 _vm._v(" "),
-                _vm._m(3)
+                _vm._m(2)
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("div", { staticClass: "container-fluid" }, [
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(4),
+                    _vm._m(3),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-md-6" }, [
                       _c(
@@ -44278,15 +44312,29 @@ var render = function() {
                             on: { change: _vm.obtenerImagen }
                           }),
                           _vm._v(" "),
-                          _c("figure", [
-                            _c("img", {
-                              attrs: {
-                                src: _vm.imagenMiniatura,
-                                height: "150",
-                                alt: "Foto Categoria"
-                              }
-                            })
-                          ]),
+                          _vm.imagenMiniatura != "" && _vm.tipoAccion == 1
+                            ? _c("figure", [
+                                _c("img", {
+                                  attrs: {
+                                    src: _vm.imagenMiniatura,
+                                    height: "150",
+                                    alt: "Foto Categoria"
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.tipoAccion == 2
+                            ? _c("figure", [
+                                _c("img", {
+                                  attrs: {
+                                    src: _vm.imagenMiniatura,
+                                    height: "150",
+                                    alt: "Foto Categoria"
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
                           _vm._v(" "),
                           _c(
                             "button",
@@ -44372,20 +44420,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Actualizado")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("button", { staticClass: "btn btn-warning mr-1" }, [
-        _c("span", { staticClass: "material-icons" }, [_vm._v("edit")])
-      ]),
-      _vm._v(" "),
-      _c("button", { staticClass: "btn btn-danger" }, [
-        _c("span", { staticClass: "material-icons" }, [_vm._v("delete")])
       ])
     ])
   },

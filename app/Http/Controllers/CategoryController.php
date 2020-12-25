@@ -86,14 +86,29 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        $input = $request->validate([
-            'name' => 'required|min:3|string',
-            'description' => 'string',
-            'state' => 'numeric'
-        ]);
-        // $input = $validatedData->all();
+        $validator = $request->validate([ 
+            'nombre' => 'required|string|min:3', 
+            'imagen' => 'required|image|mimes:jpg,jpeg,png,svg|max:2500',
+            ]);
+        dd($request);
+
+        // crear la nueva img
+        $imagen = $request->file('imagen');
+        $nombre = time().'.'.$imagen->getClientOriginalExtension();
+        $destino = public_path('img/categorias/');
+        $request->imagen->move($destino, $nombre);
+
+        $category = Category::FindOrFail($id);
+        
+        // ELIMINAR LA ANTERIOR IMG
+        $ruta = $destino.$category['imagen'];
+        unlink($ruta);
+
+        $input = $request->all();
+        $input['imagen'] = $nombre;
+
         $category->update($input);
         return response()->json(['res' => true, 'message' => 'Update OK', 'category' => $category], 200);
     }
@@ -106,7 +121,15 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::destroy($id);
+        $category = Category::FindOrFail($id);
+        $ruta = public_path('img/categorias/'.$category['imagen']);
+        
+        // ELIMINAR LA ANTERIOR IMG
+        unlink($ruta);
+        // dd($ruta);
+        
+       
+        $category->delete();
         return response()->json(['res' => true, 'message' => 'Delete OK'], 200);
     }
 

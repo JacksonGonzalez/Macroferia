@@ -58,10 +58,10 @@
                         <td> <img class="img-fluid" style="height:50%;" :src="'img/categorias/'+cat.imagen" alt="cat.nombre"></td>
                         <td>{{ cat.updated_at}}</td>
                         <td>
-                            <button class="btn btn-warning mr-1">
+                            <button class="btn btn-warning mr-1"  @click="abrirModal('actualizar', cat)">
                                 <span class="material-icons">edit</span>
                             </button>
-                            <button class="btn btn-danger">
+                            <button class="btn btn-danger" @click="deleteCategory(cat)">
                                 <span class="material-icons">delete</span>
                             </button>
                         </td>
@@ -103,57 +103,15 @@
                                         
                                         <label for="name">Nombre</label>
                                         <input v-model="categoria.nombre" type="text" class="form-control" id="name" placeholder="Nombre" required>
-                                            
-                                        <!-- <div class="form-row">
-                                            <div class="form-group col-6">
-                                                <label for="prodUser">Rol</label>
-                                                <select v-model="usuario.idRol" class="form-control" placeholder="Rol" required>
-                                                    <option v-for="rol in roles" :key="rol.id" :value="rol.id">{{ rol.nombre }}</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-6">
-                                            <label for="name">Correo</label>
-                                            <input v-model="usuario.email" type="email" class="form-control" placeholder="Email@correo.com" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-row" v-if="tipoAccion==1">
-                                            <div class="form-group col-6">
-                                                <label for="name">Contraseña</label>
-                                                <input v-model="usuario.password" type="password" class="form-control" placeholder="Contraseña" required>
-                                            </div>
-                                            <div class="form-group col-6">
-                                            <label for="name">Confirmar Contraseña</label>
-                                            <input v-model="usuario.c_password" type="password" class="form-control" placeholder="Confirmar Contraseña" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-row">
-                                            <div class="form-group col-6">
-                                            <label for="name">Telefono</label>
-                                            <input v-model="usuario.telefono" type="numeric" class="form-control" placeholder="Telefono" required>
-                                            </div>
-                                            <div class="form-group col-6">
-                                            <label for="name">Pais</label>
-                                            <input v-model="usuario.pais" type="text" class="form-control" placeholder="Pais" required>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-row">
-                                            <div class="form-group col-6">
-                                            <label for="name">Departamento</label>
-                                            <input v-model="usuario.departamento" type="text" class="form-control" placeholder="Departamento" required>
-                                            </div>
-                                            <div class="form-group col-6">
-                                            <label for="name">Ciudad</label>
-                                            <input v-model="usuario.ciudad" type="text" class="form-control" placeholder="Ciudad" required>
-                                            </div>
-                                        </div> -->
                                         
                                         <label for="imagen">Imagen</label>
                                         <input @change="obtenerImagen" type="file" class="form-control-file mb-3" id="imagen" placeholder="Direccion" accept="image/*" required>
                                         
-                                        <figure>
+                                        <figure v-if="imagenMiniatura != '' && tipoAccion==1">
+                                            <img :src="imagenMiniatura" height="150" alt="Foto Categoria">
+                                        </figure>
+
+                                        <figure v-if="tipoAccion==2">
                                             <img :src="imagenMiniatura" height="150" alt="Foto Categoria">
                                         </figure>
 
@@ -232,11 +190,52 @@
                     this.getCategories();
                     $('#categoryModal').modal('hide');
                     alert('Categoria Creado Exitosamente');
+                    this.imagenMiniatura = '';
                 }
                 })
                 .catch((err) => {
                 console.log(err);
                 });
+            },
+
+            editCategory(){
+                let formDataEdit = new FormData();
+                formDataEdit.append('nombre', this.categoria.nombre);
+                formDataEdit.append('imagen', this.categoria.imagen);
+                let id = this.categoria.id;
+                // if(typeof this.categoria.imagen === 'string'){
+                //     formDataEdit = this.categoria;
+                // }
+                // console.log(formDataEdit);
+                axios.put("/api/admin/categories/"+this.categoria.id, formDataEdit, { headers:{ Authorization: "Bearer " + this.$store.state.token, 'Content-Type': 'multipart/form-data'}})
+                .then((res) => {
+                if (res) {
+                    
+                    this.getCategories();
+                    $('#categoryModal').modal('hide');
+                    alert('Categoria Editada Exitosamente');
+                }
+                })
+                .catch((err) => {
+                console.log(err);
+                });
+            },
+
+            deleteCategory(data){
+                let opcion = confirm("Desea eliminar la categoria "+data['nombre']);
+                if (opcion == true) {
+                    axios.delete("/api/admin/categories/"+data['id'], { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                    .then((res) => {
+                    if (res) {
+        
+                        this.getCategories();
+                        alert('Categoria Eliminada Correctamente');
+                    }
+                    })
+                    .catch((err) => {
+                    console.log(err);
+                    });
+                }
             },
 
             obtenerImagen(e){
@@ -274,18 +273,12 @@
                         // console.log(data);
                         this.tituloModal = 'Editar Categoria';
                         this.tipoAccion = 2;
-                        // this.usuario.id = data['id'];
-                        // this.usuario.nombre = data['nombre'];
-                        // this.usuario.usuario = data['usuario'];
-                        // this.usuario.idRol = data['idRol'];
-                        // this.usuario.email = data['email'];
-                        // this.usuario.password = data['password'];
-                        // this.usuario.telefono = data['telefono'];
-                        // this.usuario.pais = data['pais'];
-                        // this.usuario.departamento = data['departamento'];
-                        // this.usuario.ciudad = data['ciudad'];
-                        // this.usuario.direccion = data['direccion'];
-                        
+                        this.categoria.id = data['id'];
+                        this.categoria.nombre = data['nombre'];
+                        this.categoria.imagen = data['imagen'];
+
+                        this.imagenMiniatura = 'img/categorias/'+this.categoria.imagen;
+
                         $('#categoryModal').modal('show');
                         break;
                     }
