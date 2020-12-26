@@ -32,4 +32,34 @@ class BannerController extends Controller
             return response()->json(['res' => true, 'banners' => $banners], 200);
         }
     }
+
+
+    public function store(Request $request)
+    {
+        $validator = $request->validate([ 
+            'nombre' => 'required|string|min:3', 
+            'url' => 'required|string|min:3', 
+            'imagen' => 'required|image|mimes:jpg,jpeg,png,svg|max:2500',
+            ]);
+            // dd($request);
+            $imagen = $request->file('imagen');
+            $nombre = time().'.'.$imagen->getClientOriginalExtension();
+            $destino = public_path('img/banners');
+            $request->imagen->move($destino, $nombre);
+            
+            // dd('si se subio');
+
+            $input = $request->all();
+            $input['imagen'] = $nombre;
+            $category = Banner::create($input); 
+            $success['category'] =  $category;
+
+            if($this->Autorizacion() == 0){
+                return response()->json(['res' => true, 'message' => 'no esta autorizado'], 200);
+            }else{
+                return response()->json(['success'=>$success], 200); 
+            }
+            
+
+    }
 }

@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col">
                         <!-- <h2 class="text-center">Roles</h2>  -->
-                        <button class="btn btn-primary mr-3">Añadir Banner</button>
+                        <button class="btn btn-primary mr-3"  @click="abrirModal('registrar')">Añadir Banner</button>
                     </div>
                     <div class="col">
                     </div>
@@ -81,6 +81,57 @@
 
         <!-- Main Footer -->
         <footer-main></footer-main>
+
+
+
+        <!-- MODAL Banner -->
+        <div class="modal fade" id="bannerModal" tabindex="-1" aria-labelledby="modalBanner" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalBanner">{{ tituloModal }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 text-center">
+                                    <img src="img/imagenmacro.png" alt="macroferia" class="img-fluid rounded mx-auto">
+                                </div>
+                                <div class="col-md-6">
+                                    <form enctype="multipart/form-data">
+                                    
+                                    <label for="name">Nombre</label>
+                                    <input v-model="banner.nombre" type="text" class="form-control" id="name" placeholder="Nombre" required>
+                                    
+                                    <label for="name">Url</label>
+                                    <input v-model="banner.url" type="text" class="form-control" id="name" placeholder="Url">
+
+                                    <label for="imagen">Imagen</label>
+                                    <input @change="obtenerImagen" type="file" class="form-control-file mb-3" id="imagen" placeholder="imagen" accept="image/*" required>
+                                    
+                                    <figure v-if="imagenMiniatura != '' && tipoAccion==1">
+                                        <img :src="imagenMiniatura" height="150" alt="Foto banner">
+                                    </figure>
+
+                                    <!-- <figure v-if="tipoAccion==2">
+                                        <img :src="imagenMiniatura" height="150" alt="Foto Categoria">
+                                    </figure> -->
+
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" v-if="tipoAccion==1" class="btn btn-primary" @click="addBanner()">Crear Categoria</button>
+                                    <!-- <button type="button" v-if="tipoAccion==2" class="btn btn-primary" @click="editBanner()">Editar Categoria</button> -->
+                                    </form>
+                                </div>
+                            </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- FIN MODAL Banner -->
         </div>
 </template>
 
@@ -95,6 +146,15 @@
             return {
                 loading: false,
                 banners : [],
+                imagenMiniatura: '',
+                banner: {
+                    id:'',
+                    nombre: '',
+                    imagen: '',
+                    url: '',
+                },
+                tituloModal : '',
+                tipoAccion : 0,
             }
         },
         components:{
@@ -118,6 +178,97 @@
                     .catch((err) => {
                     console.log(err);
                     });
+            },
+
+            addBanner(){
+                let formData = new FormData();
+                formData.append('nombre', this.banner.nombre);
+                formData.append('imagen', this.banner.imagen);
+                formData.append('url', this.banner.url);
+
+
+                axios.post("/api/admin/banners", formData, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                .then((res) => {
+                if (res) {
+                    // console.log(res.data.roles);
+                    // this.roles = res.data.roles
+                    // console.log(this.roles);
+                    this.getBanners();
+                    $('#bannerModal').modal('hide');
+                    alert('Banner Creado Exitosamente');
+                    this.imagenMiniatura = '';
+                }
+                })
+                .catch((err) => {
+                console.log(err);
+                });
+            },
+
+            deleteBanner(data){
+                let opcion = confirm("Desea eliminar la categoria "+data['nombre']);
+                if (opcion == true) {
+                    axios.delete("/api/admin/banners/"+data['id'], { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                    .then((res) => {
+                    if (res) {
+        
+                        this.getCategories();
+                        alert('Categoria Eliminada Correctamente');
+                    }
+                    })
+                    .catch((err) => {
+                    console.log(err);
+                    });
+                }
+            },
+
+            obtenerImagen(e){
+                let file = e.target.files[0];
+                this.banner.imagen = file;
+                // console.log(file);
+                this.cargarImagen(file);
+            },
+
+            cargarImagen(file){
+                let reader = new FileReader();
+
+                reader.onload = (e) =>{
+                    this.imagenMiniatura = e.target.result;
+                }
+
+                reader.readAsDataURL(file);
+            },
+
+            abrirModal(accion, data = []){
+                switch(accion){
+                    case 'registrar':
+                    {
+                        this.tituloModal = 'Crear Banner';
+                        this.tipoAccion = 1;
+                        // this.usuario.id = '';
+                        this.banner.nombre = '';
+                        this.banner.imagen = '';
+                        this.banner.url = '';
+                        
+                        $('#bannerModal').modal('show');
+                        break;
+                    }
+                    case 'actualizar':
+                    {
+                        // console.log(data);
+                        // this.tituloModal = 'Editar Categoria';
+                        // this.tipoAccion = 2;
+                        // this.categoria.id = data['id'];
+                        // this.categoria.nombre = data['nombre'];
+                        // this.categoria.imagen = data['imagen'];
+
+                        // this.imagenMiniatura = 'img/categorias/'+this.categoria.imagen;
+
+                        // $('#categoryModal').modal('show');
+                        break;
+                    }
+                }
+                    
+                
             }
         },
     }

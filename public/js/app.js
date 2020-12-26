@@ -2803,6 +2803,57 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2811,7 +2862,16 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       loading: false,
-      banners: []
+      banners: [],
+      imagenMiniatura: '',
+      banner: {
+        id: '',
+        nombre: '',
+        imagen: '',
+        url: ''
+      },
+      tituloModal: '',
+      tipoAccion: 0
     };
   },
   components: {
@@ -2838,6 +2898,100 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    addBanner: function addBanner() {
+      var _this2 = this;
+
+      var formData = new FormData();
+      formData.append('nombre', this.banner.nombre);
+      formData.append('imagen', this.banner.imagen);
+      formData.append('url', this.banner.url);
+      axios.post("/api/admin/banners", formData, {
+        headers: {
+          Authorization: "Bearer " + this.$store.state.token
+        }
+      }).then(function (res) {
+        if (res) {
+          // console.log(res.data.roles);
+          // this.roles = res.data.roles
+          // console.log(this.roles);
+          _this2.getBanners();
+
+          $('#bannerModal').modal('hide');
+          alert('Banner Creado Exitosamente');
+          _this2.imagenMiniatura = '';
+        }
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    deleteBanner: function deleteBanner(data) {
+      var _this3 = this;
+
+      var opcion = confirm("Desea eliminar la categoria " + data['nombre']);
+
+      if (opcion == true) {
+        axios["delete"]("/api/admin/banners/" + data['id'], {
+          headers: {
+            Authorization: "Bearer " + this.$store.state.token
+          }
+        }).then(function (res) {
+          if (res) {
+            _this3.getCategories();
+
+            alert('Categoria Eliminada Correctamente');
+          }
+        })["catch"](function (err) {
+          console.log(err);
+        });
+      }
+    },
+    obtenerImagen: function obtenerImagen(e) {
+      var file = e.target.files[0];
+      this.banner.imagen = file; // console.log(file);
+
+      this.cargarImagen(file);
+    },
+    cargarImagen: function cargarImagen(file) {
+      var _this4 = this;
+
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        _this4.imagenMiniatura = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    },
+    abrirModal: function abrirModal(accion) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+
+      switch (accion) {
+        case 'registrar':
+          {
+            this.tituloModal = 'Crear Banner';
+            this.tipoAccion = 1; // this.usuario.id = '';
+
+            this.banner.nombre = '';
+            this.banner.imagen = '';
+            this.banner.url = '';
+            $('#bannerModal').modal('show');
+            break;
+          }
+
+        case 'actualizar':
+          {
+            // console.log(data);
+            // this.tituloModal = 'Editar Categoria';
+            // this.tipoAccion = 2;
+            // this.categoria.id = data['id'];
+            // this.categoria.nombre = data['nombre'];
+            // this.categoria.imagen = data['imagen'];
+            // this.imagenMiniatura = 'img/categorias/'+this.categoria.imagen;
+            // $('#categoryModal').modal('show');
+            break;
+          }
+      }
     }
   }
 });
@@ -43950,7 +44104,24 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "content" }, [
           _c("div", { staticClass: "container" }, [
-            _vm._m(1),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary mr-3",
+                    on: {
+                      click: function($event) {
+                        return _vm.abrirModal("registrar")
+                      }
+                    }
+                  },
+                  [_vm._v("Añadir Banner")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col" })
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "row mt-2" }, [
               _c("div", { staticClass: "col-md-12" }, [
@@ -43961,7 +44132,7 @@ var render = function() {
                       "table table-striped table-hover table-responsive"
                   },
                   [
-                    _vm._m(2),
+                    _vm._m(1),
                     _vm._v(" "),
                     _c(
                       "tbody",
@@ -44016,7 +44187,169 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("footer-main")
+      _c("footer-main"),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "bannerModal",
+            tabindex: "-1",
+            "aria-labelledby": "modalBanner",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog modal-lg" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  { staticClass: "modal-title", attrs: { id: "modalBanner" } },
+                  [_vm._v(_vm._s(_vm.tituloModal))]
+                ),
+                _vm._v(" "),
+                _vm._m(2)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _c("div", { staticClass: "container-fluid" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "form",
+                        { attrs: { enctype: "multipart/form-data" } },
+                        [
+                          _c("label", { attrs: { for: "name" } }, [
+                            _vm._v("Nombre")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.banner.nombre,
+                                expression: "banner.nombre"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "name",
+                              placeholder: "Nombre",
+                              required: ""
+                            },
+                            domProps: { value: _vm.banner.nombre },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.banner,
+                                  "nombre",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "name" } }, [
+                            _vm._v("Url")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.banner.url,
+                                expression: "banner.url"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "name",
+                              placeholder: "Url"
+                            },
+                            domProps: { value: _vm.banner.url },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.banner, "url", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: "imagen" } }, [
+                            _vm._v("Imagen")
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            staticClass: "form-control-file mb-3",
+                            attrs: {
+                              type: "file",
+                              id: "imagen",
+                              placeholder: "imagen",
+                              accept: "image/*",
+                              required: ""
+                            },
+                            on: { change: _vm.obtenerImagen }
+                          }),
+                          _vm._v(" "),
+                          _vm.imagenMiniatura != "" && _vm.tipoAccion == 1
+                            ? _c("figure", [
+                                _c("img", {
+                                  attrs: {
+                                    src: _vm.imagenMiniatura,
+                                    height: "150",
+                                    alt: "Foto banner"
+                                  }
+                                })
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-secondary",
+                              attrs: { type: "button", "data-dismiss": "modal" }
+                            },
+                            [_vm._v("Cancelar")]
+                          ),
+                          _vm._v(" "),
+                          _vm.tipoAccion == 1
+                            ? _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-primary",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.addBanner()
+                                    }
+                                  }
+                                },
+                                [_vm._v("Crear Categoria")]
+                              )
+                            : _vm._e()
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
     ],
     1
   )
@@ -44040,20 +44373,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("button", { staticClass: "btn btn-primary mr-3" }, [
-          _vm._v("Añadir Banner")
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
@@ -44066,6 +44385,34 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Opciones")])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6 text-center" }, [
+      _c("img", {
+        staticClass: "img-fluid rounded mx-auto",
+        attrs: { src: "img/imagenmacro.png", alt: "macroferia" }
+      })
     ])
   }
 ]
