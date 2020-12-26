@@ -2802,6 +2802,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -4664,6 +4665,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+$(".carousel-inner:first-child").addClass("rojo");
+$("#carusel").css({
+  "border": "5px solid red"
+});
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Banner',
   data: function data() {
@@ -44019,18 +44031,6 @@ var staticRenderFns = [
         _c("div", { staticClass: "row mb-2" }, [
           _c("div", { staticClass: "col-sm-6" }, [
             _c("h1", { staticClass: "m-0 text-dark" }, [_vm._v("Banner")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-6" }, [
-            _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-              _c("li", { staticClass: "breadcrumb-item" }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Banner")])
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "breadcrumb-item active" }, [
-                _vm._v("Dashboard v3")
-              ])
-            ])
           ])
         ])
       ])
@@ -44041,13 +44041,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }),
-      _vm._v(" "),
       _c("div", { staticClass: "col" }, [
-        _c("button", { staticClass: "btn btn-primary float-right mr-3" }, [
+        _c("button", { staticClass: "btn btn-primary mr-3" }, [
           _vm._v("Añadir Banner")
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" })
     ])
   },
   function() {
@@ -47260,9 +47260,9 @@ var render = function() {
         attrs: { id: "myCarousel", "data-ride": "carousel" }
       },
       [
-        _vm._m(0),
+        _c("ol", { staticClass: "carousel-indicators" }),
         _vm._v(" "),
-        _c("div", { staticClass: "carousel-inner" }, [
+        _c("div", { staticClass: "carousel-inner", attrs: { id: "carusel" } }, [
           _c("div", { staticClass: "carousel-item active" }, [
             _c(
               "svg",
@@ -47284,112 +47284,18 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _vm._m(1)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "carousel-item" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "bd-placeholder-img",
-                attrs: {
-                  width: "100%",
-                  height: "100%",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  preserveAspectRatio: "xMidYMid slice",
-                  focusable: "false",
-                  role: "img"
-                }
-              },
-              [
-                _c("rect", {
-                  attrs: { width: "100%", height: "100%", fill: "#777" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(2)
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "carousel-item" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "bd-placeholder-img",
-                attrs: {
-                  width: "100%",
-                  height: "100%",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  preserveAspectRatio: "xMidYMid slice",
-                  focusable: "false",
-                  role: "img"
-                }
-              },
-              [
-                _c("rect", {
-                  attrs: { width: "100%", height: "100%", fill: "#777" }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(3)
+            _vm._m(0)
           ])
         ]),
         _vm._v(" "),
-        _vm._m(4),
+        _vm._m(1),
         _vm._v(" "),
-        _vm._m(5)
+        _vm._m(2)
       ]
     )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ol", { staticClass: "carousel-indicators" }, [
-      _c("li", {
-        staticClass: "active",
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "0" }
-      }),
-      _vm._v(" "),
-      _c("li", {
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "1" }
-      }),
-      _vm._v(" "),
-      _c("li", {
-        attrs: { "data-target": "#myCarousel", "data-slide-to": "2" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "carousel-caption text-left" }, [
-        _c("h1", [_vm._v("Example headline.")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-lg btn-primary",
-              attrs: { href: "#", role: "button" }
-            },
-            [_vm._v("Sign up today")]
-          )
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -47412,33 +47318,6 @@ var staticRenderFns = [
               attrs: { href: "#", role: "button" }
             },
             [_vm._v("Learn more")]
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "carousel-caption text-right" }, [
-        _c("h1", [_vm._v("One more for good measure.")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit."
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _c(
-            "a",
-            {
-              staticClass: "btn btn-lg btn-primary",
-              attrs: { href: "#", role: "button" }
-            },
-            [_vm._v("Browse gallery")]
           )
         ])
       ])

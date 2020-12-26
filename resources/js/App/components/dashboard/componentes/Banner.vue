@@ -16,12 +16,13 @@
                 <div class="col-sm-6">
                     <h1 class="m-0 text-dark">Banner</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Banner</a></li>
                     <li class="breadcrumb-item active">Dashboard v3</li>
                     </ol>
-                </div><!-- /.col -->
+                </div> -->
+                <!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
             </div>
@@ -33,9 +34,9 @@
                 <div class="row">
                     <div class="col">
                         <!-- <h2 class="text-center">Roles</h2>  -->
+                        <button class="btn btn-primary mr-3">Añadir Banner</button>
                     </div>
                     <div class="col">
-                        <button class="btn btn-primary float-right mr-3">Añadir Banner</button>
                     </div>
                 </div>
                 <div class="row mt-2">

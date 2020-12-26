@@ -2,32 +2,38 @@
   <div>
      <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <!-- <li data-target="#myCarousel" data-slide-to="0" class="active"></li> -->
+        <!-- <li data-target="#myCarousel" data-slide-to="1"></li> -->
+        <!-- <li data-target="#myCarousel" data-slide-to="2"></li> -->
         </ol>
-        <div class="carousel-inner">
-        <div class="carousel-item active">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-            <div class="container">
-            <div class="carousel-caption text-left">
-                <h1>Example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+        <div class="carousel-inner" id="carusel">
+
+        
+
+            <div class="carousel-item active">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                <div class="container">
+                <div class="carousel-caption">
+                    <h1>Another example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-            <div class="container">
-            <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
-            </div>
-        </div>
-        <div class="carousel-item">
+
+    <!-- <div class="carousel-item active">
+                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
+                <div class="container">
+                <div class="carousel-caption text-left">
+                    <h1>Example headline.</h1>
+                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                </div>
+                </div>
+            </div> -->
+
+
+        <!-- <div class="carousel-item">
             <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
             <div class="container">
             <div class="carousel-caption text-right">
@@ -36,7 +42,8 @@
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
             </div>
             </div>
-        </div>
+        </div> -->
+
         </div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -51,7 +58,8 @@
 </template>
 
 <script>
-    
+        $(".carousel-inner:first-child").addClass("rojo");
+        $("#carusel").css({"border":"5px solid red"});
 
     export default {
         name: 'Banner',
@@ -62,10 +70,10 @@
         },
         components:{
             
-        },
+            },
         mounted() {
             
-        }
+            }
     }
 </script>
 
