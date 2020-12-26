@@ -41,7 +41,7 @@ Route::group([//
     Route::resource('roles', 'RolController');
     // Route::resource('products', 'ProductController');
     Route::resource('users', 'UserController');
-    Route::resource('banners', 'BannerController');
+    Route::resource('carusel', 'BannerController');
     // Route::resource('clients', 'ClientController');
     // Route::resource('buys', 'BuyController');
     // Route::resource('orders', 'OrderController');

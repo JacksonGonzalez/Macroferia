@@ -167,7 +167,7 @@
         },
         methods: {
             getBanners(){
-                axios.get("/api/admin/banners", { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                axios.get("/api/admin/carusel", { headers:{ Authorization: "Bearer " + this.$store.state.token }})
                     .then((res) => {
                     if (res) {
                         // console.log(res.data.banners);
@@ -187,7 +187,7 @@
                 formData.append('url', this.banner.url);
 
 
-                axios.post("/api/admin/banners", formData, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                axios.post("/api/admin/carusel", formData, { headers:{ Authorization: "Bearer " + this.$store.state.token }})
                 .then((res) => {
                 if (res) {
                     // console.log(res.data.roles);
@@ -205,14 +205,14 @@
             },
 
             deleteBanner(data){
-                let opcion = confirm("Desea eliminar la categoria "+data['nombre']);
+                let opcion = confirm("Desea eliminar el banner "+data['nombre']);
                 if (opcion == true) {
-                    axios.delete("/api/admin/banners/"+data['id'], { headers:{ Authorization: "Bearer " + this.$store.state.token }})
+                    axios.delete("/api/admin/carusel/"+data['id'], { headers:{ Authorization: "Bearer " + this.$store.state.token }})
                     .then((res) => {
                     if (res) {
         
-                        this.getCategories();
-                        alert('Categoria Eliminada Correctamente');
+                        this.getBanners();
+                        alert('Banner Eliminado Correctamente');
                     }
                     })
                     .catch((err) => {

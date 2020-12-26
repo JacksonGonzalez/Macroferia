@@ -58,8 +58,22 @@ class BannerController extends Controller
                 return response()->json(['res' => true, 'message' => 'no esta autorizado'], 200);
             }else{
                 return response()->json(['success'=>$success], 200); 
-            }
-            
+            }     
 
+    }
+
+
+    public function destroy($id)
+    {
+        $banner = Banner::FindOrFail($id);
+        $ruta = public_path('img/banners/'.$banner['imagen']);
+        // dd($banner);
+        // ELIMINAR LA ANTERIOR IMG
+        unlink($ruta);
+        // dd($ruta);
+        
+       
+        $banner->delete();
+        return response()->json(['res' => true, 'message' => 'Delete OK'], 200);
     }
 }

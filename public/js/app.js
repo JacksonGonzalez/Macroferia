@@ -2886,7 +2886,7 @@ __webpack_require__.r(__webpack_exports__);
     getBanners: function getBanners() {
       var _this = this;
 
-      axios.get("/api/admin/banners", {
+      axios.get("/api/admin/carusel", {
         headers: {
           Authorization: "Bearer " + this.$store.state.token
         }
@@ -2906,7 +2906,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('nombre', this.banner.nombre);
       formData.append('imagen', this.banner.imagen);
       formData.append('url', this.banner.url);
-      axios.post("/api/admin/banners", formData, {
+      axios.post("/api/admin/carusel", formData, {
         headers: {
           Authorization: "Bearer " + this.$store.state.token
         }
@@ -2928,18 +2928,18 @@ __webpack_require__.r(__webpack_exports__);
     deleteBanner: function deleteBanner(data) {
       var _this3 = this;
 
-      var opcion = confirm("Desea eliminar la categoria " + data['nombre']);
+      var opcion = confirm("Desea eliminar el banner " + data['nombre']);
 
       if (opcion == true) {
-        axios["delete"]("/api/admin/banners/" + data['id'], {
+        axios["delete"]("/api/admin/carusel/" + data['id'], {
           headers: {
             Authorization: "Bearer " + this.$store.state.token
           }
         }).then(function (res) {
           if (res) {
-            _this3.getCategories();
+            _this3.getBanners();
 
-            alert('Categoria Eliminada Correctamente');
+            alert('Banner Eliminado Correctamente');
           }
         })["catch"](function (err) {
           console.log(err);
